@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "dgSpecHash": "OGSSBvSl4Z/C7M6JLy3t/Yp2OIoBYcYEINfvgWooZD6uw6DzHmepMYXEI1DedtzELrruAHuVLUWRyj0x5J/WcQ==",
+  "success": true,
+  "projectFilePath": "/home/l21/Documents/qa_automation/selenium_tests/selenium_tests.csproj",
+  "expectedPackageFiles": [
+    "/home/l21/.nuget/packages/microsoft.codecoverage/17.10.0-preview-24080-01/microsoft.codecoverage.17.10.0-preview-24080-01.nupkg.sha512",
+    "/home/l21/.nuget/packages/microsoft.net.test.sdk/17.10.0-preview-24080-01/microsoft.net.test.sdk.17.10.0-preview-24080-01.nupkg.sha512",
+    "/home/l21/.nuget/packages/microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "/home/l21/.nuget/packages/microsoft.testplatform.objectmodel/17.10.0-preview-24080-01/microsoft.testplatform.objectmodel.17.10.0-preview-24080-01.nupkg.sha512",
+    "/home/l21/.nuget/packages/microsoft.testplatform.testhost/17.10.0-preview-24080-01/microsoft.testplatform.testhost.17.10.0-preview-24080-01.nupkg.sha512",
+    "/home/l21/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "/home/l21/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
+    "/home/l21/.nuget/packages/nunit/4.1.0/nunit.4.1.0.nupkg.sha512",
+    "/home/l21/.nuget/packages/nunit3testadapter/4.5.0/nunit3testadapter.4.5.0.nupkg.sha512",
+    "/home/l21/.nuget/packages/selenium.support/4.18.1/selenium.support.4.18.1.nupkg.sha512",
+    "/home/l21/.nuget/packages/selenium.webdriver/4.18.1/selenium.webdriver.4.18.1.nupkg.sha512",
+    "/home/l21/.nuget/packages/system.drawing.common/5.0.0/system.drawing.common.5.0.0.nupkg.sha512",
+    "/home/l21/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1904",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Drawing.Common' 5.0.0 has a known critical severity vulnerability, https://github.com/advisories/GHSA-rxg9-xrhp-64gj",
+      "libraryId": "System.Drawing.Common",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

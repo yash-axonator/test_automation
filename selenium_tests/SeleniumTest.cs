@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
+using System.Threading;
 namespace selenium_tests;
 
 public class SeleniumTest
@@ -37,23 +38,42 @@ public class SeleniumTest
     {
         
         // seleniumFunctions.signUp(driver,"yash","lunkad","yash2@axonator.com","1234","axonator","7448125003", "desc");
-        seleniumFunctions.login(driver,"yash1@axonator.com","Welcome@12345");
-        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+        // seleniumFunctions.login(driver,"yash1@axonator.com","Welcome@12345"); //prod user
+        seleniumFunctions.login(driver,"yash_test@axonator.com","Welcome@12345"); //QA 
+        Thread.Sleep(TimeSpan.FromSeconds(5));
         // seleniumFunctions.closePopUp2(driver);
         // seleniumFunctions.closePopUp1(driver);
         // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         // seleniumFunctions.closePopUp2(driver);
         // seleniumFunctions.closePopUp1(driver);
-        // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-        seleniumFunctions.createApp(driver);
-        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-        seleniumFunctions.createForm(driver,"safety");
-        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-        seleniumFunctions.addTextBox(driver,"sample_text");
-        seleniumFunctions.saveForm(driver);
-        driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-        seleniumFunctions.release_app(driver);
-        seleniumFunctions.release_app(driver);
+        Thread.Sleep(TimeSpan.FromSeconds(5));
+        seleniumFunctions.createAppQA(driver);
+        Thread.Sleep(TimeSpan.FromSeconds(10));
+        seleniumFunctions.createFormQA(driver,"safety");
+        Thread.Sleep(TimeSpan.FromSeconds(10));
+        seleniumFunctions.addTextBoxQA(driver,"sample_text","email","textbox_unique");
+        string[] choice_items = new string[] { "To Do", "In Progress", "Completed" };
+        seleniumFunctions.addChoiceListQA(driver,choice_items,"choice_label");
+          
+        Thread.Sleep(TimeSpan.FromSeconds(2));
+        
+        seleniumFunctions.addChoiceListQA(driver,"choice_label1");
+        seleniumFunctions.scrollDown(driver);
+        seleniumFunctions.addGroupHeaderQA(driver,"group header title",5);
+        Thread.Sleep(TimeSpan.FromSeconds(5));
+        seleniumFunctions.scrollDown(driver);
+        seleniumFunctions.addPhotoQA(driver,"photo_lable");
+        Thread.Sleep(TimeSpan.FromSeconds(5));
+        seleniumFunctions.scrollDown(driver);
+        seleniumFunctions.addToggleQA(driver,"toggle_label","toggle_placeholder");
+        seleniumFunctions.addDateTimeQA(driver," Date");
+
+        Thread.Sleep(TimeSpan.FromSeconds(5));
+        seleniumFunctions.saveFormQA(driver);
+
+        Thread.Sleep(TimeSpan.FromSeconds(5));
+        seleniumFunctions.release_app_QA(driver);
+        // seleniumFunctions.release_app(driver);
         Assert.Pass();
     }
 

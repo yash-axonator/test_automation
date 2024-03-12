@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpaths>
+    <username>//input[@name='Username']</username>
+    <password>//input[@name="Password"]</password>
+    <login_button>//button[@name='button']</login_button>
+
+    //sign up
+    <signup>//a[text()='Sign Up']</signup>
+    <firstname>//input[@id='FirstName']</firstname>
+    <lastname>//input[@id='Lastname']</lastname>
+    <pass_sign>//input[@id='Password']</pass_sign>
+    <organization>//input[@id='Organiztion']</organization>
+    <number>//input[@id='Phone']</number>
+    <description>//textarea[@id='looking_for']</description>
+    <signin>//input[@value='Sign In']</signin>
+
+    //build your app now button
+    <build>//button[text()='Build App Now ']</build>
+    <build_btn>//button[@id='i-have-both-btn']</build_btn>
+    <create_app>//button[contains(., 'Create App')]</create_app>
+    <app_name>//input[@name='app_name']</app_name>
+    <app_desc>//textarea[@name='password']</app_desc>
+    <create_app_btn>//button[@class="axo-btn btn-primary ng-binding" and @type="submit"]</create_app_btn>
+
+    //create form button
+    <create_form>//span[@class='create-report' and text()='Create Form']/ancestor::button</create_form>
+
+    <form_name>//input[@ng-reflect-model="Untitled Form"]</form_name>
+    <create_form_button>//button[@class='btn axo-btn btn-primary ng-binding' and @type='submit']</create_form_button>
+    
+     
+    //DROP WIDGET HERE
+    <drop_here>//div[text()=' Drop widget here....']</drop_here>
+    <drop_here_inserted>//widget[@id='widget-System Fields']</drop_here_inserted>
+
+    //DRAG DROP WIDGET
+    <textbox>//img[contains(@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Text-black_new.svg')]</textbox>
+     <choicelist>//img[contains(@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Choice-list-black_new')]</choicelist>
+     <group_header>//img[contains (@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Groupheader-black_new.svg')]</group_header>
+     <photo>//img[contains (@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Photo-black_new.svg')]</photo>
+     <toggle>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Toggle-black_new.svg')]</toggle>
+     <date_time>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/DateTime-black_new.svg')]</date_time>
+     
+     //set text in textbox
+     <textbox_text>//input[@ng-reflect-model='Text' and @ng-reflect-type="prompttext"]</textbox_text>
+
+     //input type in textbox
+     <input_type>//*[@id="mat-select-value-7"]</input_type>
+     <dropdown>//div[@id="mat-select-0-panel"]</dropdown>
+
+     //unique identifier textbox
+     <unique_textbox>//input[@ng-reflect-model='Text' and @ng-reflect-type="text"]</unique_textbox>
+
+     //CHOICE Choice
+
+     //Choice list label
+     <choice_list_label>//input[@ng-reflect-type="prompttext"]</choice_list_label>
+     
+     //choicelist text
+     <choice_text>//input[@ng-reflect-type="choicetext"]</choice_text>
+
+     //choice list datatype
+     <choice_list_datatype_fixed>//span[text()='Fixed List']</choice_list_datatype_fixed>
+     <choice_list_datatype_reference>//span[text()=' Reference List']</choice_list_datatype_reference>
+     <reference_to>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[1]/mat-expansion-panel/div/div/div/div[2]/mat-form-field/div/div[1]/div</reference_to>
+     <reference_to_user>//span[text()=' User']</reference_to_user>
+
+     //add group header title
+     <header_title>//input[@ng-reflect-model="Group Header" and @ng-reflect-type="text" and @aria-required="false"]</header_title>
+     <header_indent>//input[@ng-reflect-type="number"]</header_indent>
+
+     //photo label
+     <photo_label>//input[@ng-reflect-model="Photo" and @ng-reflect-type="prompttext" and @aria-required="true"]</photo_label>
+     <photo_required>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[2]/mat-expansion-panel/div/div/div/div[5]/div/mat-slide-toggle/label/span[1]/span/span[1]</photo_required>
+
+     //toggle label
+     <toggle_label>//input[@ng-reflect-model="Toggle" and @ng-reflect-type="prompttext"]</toggle_label>
+     <toggle_placeholder>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[2]/mat-expansion-panel/div/div/div/div[4]/mat-form-field/div/div[1]/div/input</toggle_placeholder>
+     
+     //DATE TIME
+     <date_time_picker>//span[text()='Date time both']</date_time_picker>
+     
+     <widget_panel>//div[@class="builder-frame-left-panel ng-tns-c556-5 ng-star-inserted"]</widget_panel>
+     <expand_widget>//img[@src="/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/dropdown1.svg"]</expand_widget>
+     <phone_view>//div[@class="screen-view-wrapper customscroll"]</phone_view>
+     //Save form
+     <save_form>//button[text()='Save']</save_form>
+
+
+     //release app
+     <release_app>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[1]/div/button</release_app>
+     <release_version>//span[text()='Publish App']</release_version>
+
+    //popup block
+    <popup1>//div[@class='modal_close' and @ng-click='cancel()']</popup1>
+    <popup2>//div[@class='modal_close ng-scope' and @ng-click='cancel()']</popup2>
+    <popup3_video>//i[@class='material-icons']</popup3_video>
+    
+</xpaths>

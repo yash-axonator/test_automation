@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xpaths>
+  <forms>//a[@ng-reflect-router-link="form"]</forms>
+
+  <textbox>//input[@ng-reflect-type="text"]</textbox>
+
+  <choose_photo>//input[@id="Photo"]</choose_photo>
+
+  <toggle>//mat-slide-toggle[@ng-reflect-name="Toggle"]</toggle>
+  <date_time>//*[@class="mat-datepicker-toggle-default-icon ng-star-inserted"]</date_time>
+  <year>//*[@class="mat-calendar-arrow"]</year>
+
+  <submit>//span[text()=' Submit ']</submit>
+
+
+</xpaths>

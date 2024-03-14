@@ -12,6 +12,7 @@ public class SeleniumTest
 
     //created a class SeleniumFuctions to include functions used in tests
     public SeleniumFunctions seleniumFunctions;
+    public ContainerFunctions containerFunctions;
 
     [SetUp]
     public void Setup()
@@ -25,6 +26,7 @@ public class SeleniumTest
         // // // Initialize ChromeDriver with headless options
         // driver = new ChromeDriver(options);
         seleniumFunctions = new SeleniumFunctions(); //creating object of class containing fucntion
+        containerFunctions = new ContainerFunctions(); //container page fucntions
         // driver.Navigate().GoToUrl("https://andromeda-identity-qa.axonator.com/"); https://app.axonator.com/
         driver.Navigate().GoToUrl("https://andromeda-builder-qa.axonator.com/");
         driver.Manage().Window.Maximize();
@@ -40,10 +42,9 @@ public class SeleniumTest
         // seleniumFunctions.signUp(driver,"yash","lunkad","yash2@axonator.com","1234","axonator","7448125003", "desc");
         // seleniumFunctions.login(driver,"yash1@axonator.com","Welcome@12345"); //prod user
         seleniumFunctions.login(driver,"yash_test@axonator.com","Welcome@12345"); //QA 
-        Thread.Sleep(TimeSpan.FromSeconds(5));
+        // Thread.Sleep(TimeSpan.FromSeconds(5));
         // seleniumFunctions.closePopUp2(driver);
         // seleniumFunctions.closePopUp1(driver);
-        // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         // seleniumFunctions.closePopUp2(driver);
         // seleniumFunctions.closePopUp1(driver);
         Thread.Sleep(TimeSpan.FromSeconds(5));
@@ -62,7 +63,7 @@ public class SeleniumTest
         seleniumFunctions.addGroupHeaderQA(driver,"group header title",5);
         Thread.Sleep(TimeSpan.FromSeconds(5));
         seleniumFunctions.scrollDown(driver);
-        seleniumFunctions.addPhotoQA(driver,"photo_lable");
+        seleniumFunctions.addPhotoQA(driver,"photo_label");
         Thread.Sleep(TimeSpan.FromSeconds(5));
         seleniumFunctions.scrollDown(driver);
         seleniumFunctions.addToggleQA(driver,"toggle_label","toggle_placeholder");
@@ -73,6 +74,17 @@ public class SeleniumTest
 
         Thread.Sleep(TimeSpan.FromSeconds(5));
         seleniumFunctions.release_app_QA(driver);
+
+        Thread.Sleep(TimeSpan.FromSeconds(5));
+        driver.Navigate().GoToUrl("https://andromeda-container-qa.axonator.com/apps");
+        Thread.Sleep(TimeSpan.FromSeconds(20));
+        containerFunctions.selectApp(driver,"Untitled App 16","safety");
+        containerFunctions.addText(driver,"hello@gmail.com","email");
+        containerFunctions.uploadPhoto(driver);
+        containerFunctions.toggleChange(driver);
+        containerFunctions.setDateTime(driver,"2024","MAY","2");
+        containerFunctions.submitForm(driver);
+
         // seleniumFunctions.release_app(driver);
         Assert.Pass();
     }

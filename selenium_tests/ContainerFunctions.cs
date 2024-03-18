@@ -64,9 +64,12 @@ public class ContainerFunctions
 
    public void setDateTime(IWebDriver driver, string inputYear, string inputMonth,string inputDate)
    {
+      Thread.Sleep(TimeSpan.FromSeconds(10));
       IWebElement date_time = driver.FindElement(By.XPath(xpathReader.GetXPath("date_time")));
       date_time.Click();
 
+
+      Thread.Sleep(TimeSpan.FromSeconds(10));
       IWebElement year = driver.FindElement(By.XPath(xpathReader.GetXPath("year")));
       year.Click();
 
@@ -93,6 +96,14 @@ public class ContainerFunctions
 
 
 
+   }
+
+   public void uploadDocument(IWebDriver driver,string path)
+   {
+       IWebElement choose_photo = driver.FindElement(By.XPath(xpathReader.GetXPath("choose_document")));
+      
+      
+      choose_photo.SendKeys(path);
    }
 
    public void submitForm(IWebDriver driver)

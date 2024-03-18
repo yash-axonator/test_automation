@@ -349,6 +349,7 @@ public class SeleniumFunctions
 
       }
       choice_text.SendKeys(Keys.Backspace);
+      Thread.Sleep(TimeSpan.FromSeconds(5));
       
       //set label
       IWebElement choice_list_label = driver.FindElement(By.XPath(xpathReader.GetXPath("choice_list_label")));
@@ -378,6 +379,7 @@ public class SeleniumFunctions
   
       Actions actions = new Actions(driver);
       actions.DragAndDrop(source, target).Build().Perform();
+       Thread.Sleep(TimeSpan.FromSeconds(5));
 
       //set label
       IWebElement choice_list_label = driver.FindElement(By.XPath(xpathReader.GetXPath("choice_list_label")));
@@ -412,7 +414,7 @@ public class SeleniumFunctions
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
 
-      Thread.Sleep(TimeSpan.FromSeconds(20));
+      Thread.Sleep(TimeSpan.FromSeconds(5));
 
       IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
       widget_panel.Click();
@@ -421,7 +423,7 @@ public class SeleniumFunctions
       // Actions actions1 = new Actions(driver);
       // actions1.SendKeys(Keys.PageDown).Perform();
 
-      Thread.Sleep(TimeSpan.FromSeconds(20));
+      Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("group_header")));
       HighlightElement(driver,source);
 
@@ -470,7 +472,7 @@ public class SeleniumFunctions
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
 
-      Thread.Sleep(TimeSpan.FromSeconds(20));
+      Thread.Sleep(TimeSpan.FromSeconds(5));
 
       IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
       widget_panel.Click();
@@ -479,7 +481,7 @@ public class SeleniumFunctions
       // Actions actions1 = new Actions(driver);
       // actions1.SendKeys(Keys.PageDown).Perform();
 
-      Thread.Sleep(TimeSpan.FromSeconds(20));
+      Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("photo")));
       HighlightElement(driver,source);
 
@@ -551,7 +553,7 @@ public class SeleniumFunctions
     toggle_label.Clear();
     toggle_label.SendKeys(label);
 
-     Thread.Sleep(TimeSpan.FromSeconds(2));
+     Thread.Sleep(TimeSpan.FromSeconds(5));
     IWebElement toggle_placeholder= driver.FindElement(By.XPath(xpathReader.GetXPath("toggle_placeholder")));
     toggle_placeholder.Click();
     toggle_placeholder.Clear();
@@ -600,6 +602,889 @@ public class SeleniumFunctions
 
       
    }
+
+
+   //ADD GPS
+   public void addGpsQA(IWebDriver driver, string capture_type)
+   {
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("gps")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+   actions.DragAndDrop(source, target).Build().Perform();
+   
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+     IWebElement capturetype = driver.FindElement(By.XPath(xpathReader.GetXPath("capturetype")));
+     capturetype.Click();
+     Thread.Sleep(TimeSpan.FromSeconds(5));
+
+     string capture_type_xpath = $"//mat-option[@ng-reflect-value='{capture_type}']";
+     IWebElement select_capture_type = driver.FindElement(By.XPath(capture_type_xpath));
+     select_capture_type.Click();
+
+
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    expand.Click();
+    
+      
+   }
+
+   public void addTimeStampQA(IWebDriver driver, string mode_value)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(10));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("timestamp")));
+      HighlightElement(driver,source);
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+
+     Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+     IWebElement mode = driver.FindElement(By.XPath(xpathReader.GetXPath("mode")));
+     mode.Click();
+     Thread.Sleep(TimeSpan.FromSeconds(5));
+
+     string mode_value_xpath = $"//mat-option[@ng-reflect-value='{mode_value}']";
+     IWebElement select_mode_value = driver.FindElement(By.XPath(mode_value_xpath));
+     select_mode_value.Click();
+   }
+
+   public void addChildRecordQA(IWebDriver driver)
+   {
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("childrecord")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+    IWebElement childform = driver.FindElement(By.XPath(xpathReader.GetXPath("childform")));
+    childform.Click();
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    IWebElement childform_user = driver.FindElement(By.XPath(xpathReader.GetXPath("childform_user")));
+    childform_user.Click();
+
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    expand.Click();
+    
+      
+   }
+
+   public void addStaticMediaQA(IWebDriver driver)
+   {
+       Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("staticmedia")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    expand.Click();
+    
+      
+   }
+
+   public void addQrCodeQA(IWebDriver driver, string subtype)
+   {
+       Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("qrcode")));
+      HighlightElement(driver,source);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+     Thread.Sleep(TimeSpan.FromSeconds(5));
+
+     IWebElement qrcode_subtype = driver.FindElement(By.XPath(xpathReader.GetXPath("qrcode_subtype")));
+     qrcode_subtype.Click();
+     Thread.Sleep(TimeSpan.FromSeconds(5));
+
+     string subtype_xpath =$"//span[text()='{subtype}']";
+
+     IWebElement select_subtype = driver.FindElement(By.XPath(subtype_xpath));
+     select_subtype.Click();
+
+
+   }
+
+   public void addStopWatchQA(IWebDriver driver,string indent)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("stopwatch")));
+      HighlightElement(driver,source);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+
+     Thread.Sleep(TimeSpan.FromSeconds(5));
+     IWebElement increase_indent = driver.FindElement(By.XPath(xpathReader.GetXPath("stopwatch_indent")));
+     increase_indent.Click();
+     increase_indent.Clear();
+     increase_indent.SendKeys(indent);
+   }
+
+   public void addCounterQA(IWebDriver driver,string unit, string indent)
+   {
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("counter")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+
+     IWebElement set_unit = driver.FindElement(By.XPath(xpathReader.GetXPath("counter_unit")));
+     set_unit.Click();
+     set_unit.Clear();
+     set_unit.SendKeys(unit);
+    
+
+     IWebElement increase_indent = driver.FindElement(By.XPath(xpathReader.GetXPath("counter_indent")));
+     increase_indent.Click();
+     increase_indent.Clear();
+     increase_indent.SendKeys(indent);
+    
+    
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    expand.Click();
+    
+      
+   }
+
+   public void addGeoFenceQA(IWebDriver driver, string radius)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("geofence")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+    string select_centre_xpath = $"//div[@role='listbox']";
+
+    IWebElement geofence_centre = driver.FindElement(By.XPath(xpathReader.GetXPath("geofence_centre")));
+    geofence_centre.Click();
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+
+    IWebElement select_centre = driver.FindElement(By.XPath(select_centre_xpath));    
+    select_centre.Click();
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+
+    IWebElement geofence_radius = driver.FindElement(By.XPath(xpathReader.GetXPath("geofence_radius")));
+    geofence_radius.Click();
+    geofence_radius.Clear();
+    geofence_radius.SendKeys(radius);
+
+
+   
+
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    expand.Click();
+    
+      
+   }
+
+   public void addApplyGeoFenceQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("applygeofence")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+    string select_object_xpath = $"//div[@role='listbox']";
+
+    IWebElement applygeofence_object = driver.FindElement(By.XPath(xpathReader.GetXPath("applygeofence_object")));
+    applygeofence_object.Click();
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+
+    IWebElement select_object = driver.FindElement(By.XPath(select_object_xpath));    
+    select_object.Click();
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    expand.Click();
+    
+      
+   }
+
+   public void addBarcodeQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("barcode")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    expand.Click();
+    
+      
+   }
+
+   public void addDocumentQA(IWebDriver driver,string type,string size)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("document")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+
+   //  IWebElement document_type_dropdown = driver.FindElement(By.XPath(xpathReader.GetXPath("document_type")));
+   //  document_type_dropdown.Click();
+
+
+   //  string document_type_xpath = $"//span[text()='{type}']";
+
+   //  Thread.Sleep(TimeSpan.FromSeconds(5));
+   //  IWebElement select_document_type = driver.FindElement(By.XPath(document_type_xpath));
+   //  select_document_type.Click();
+   //   Thread.Sleep(TimeSpan.FromSeconds(5));
+   //   IWebElement click_event = driver.FindElement(By.XPath("//mat-label[text()='Generate public URL for accessing documents?']"));
+   //  source.Click();
+
+   IWebElement document_size = driver.FindElement(By.XPath(xpathReader.GetXPath("document_size")));
+   document_size.Click();
+   document_size.Clear();
+   document_size.SendKeys(size);
+    
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    expand.Click(); 
+
+    
+      
+   }
+   public void addAudioQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("audio")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    expand.Click();
+    
+      
+   }
+
+   public void addVideoQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("video")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    expand.Click();
+    
+      
+   }
+
+   public void addFormulaQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("formula")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    expand.Click();
+    
+      
+   }
+
+   public void addWebLinkQA(IWebDriver driver,string url)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("weblink")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+    IWebElement target_url = driver.FindElement(By.XPath(xpathReader.GetXPath("target_url")));
+    target_url.Click();
+    target_url.Clear();
+    target_url.SendKeys(url);
+
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    expand.Click();
+    
+      
+   }
+
+   public void addUniqueIdQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("uniqueid")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    expand.Click();
+    
+      
+   }
+
+   public void addAutoNumberQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
+      expand.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      IWebElement widget_panel = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel);
+
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("autonumber")));
+      HighlightElement(driver,source);
+
+      IWebElement widget_panel1 = driver.FindElement(By.CssSelector("[class*='builder-frame-left-panel']"));
+      widget_panel1.Click();
+      ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollBy(0, 350);", widget_panel1);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    expand.Click();
+    
+      
+   }
+
+   public void addLanguageQA(IWebDriver driver)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      // Actions actions1 = new Actions(driver);
+      // actions1.SendKeys(Keys.PageDown).Perform();
+
+      
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("language")));
+      HighlightElement(driver,source);
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+
+    
+    
+      
+   }
+
 
    public void scrollDown(IWebDriver driver)
    {
@@ -692,6 +1577,7 @@ public class SeleniumFunctions
       IWebElement release = driver.FindElement(By.XPath(xpathReader.GetXPath("release_app")));
       release.Click();
 
+      Thread.Sleep(TimeSpan.FromSeconds(20));
       IWebElement release_version = driver.FindElement(By.XPath(xpathReader.GetXPath("release_version")));
       release_version.Click();
 

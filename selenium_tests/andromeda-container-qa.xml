@@ -10,6 +10,8 @@
   <date_time>//*[@class="mat-datepicker-toggle-default-icon ng-star-inserted"]</date_time>
   <year>//*[@class="mat-calendar-arrow"]</year>
 
+  <choose_document>//input[@id="Document"]</choose_document>
+
   <submit>//span[text()=' Submit ']</submit>
 
 

@@ -40,7 +40,28 @@
      <photo>//img[contains (@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Photo-black_new.svg')]</photo>
      <toggle>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Toggle-black_new.svg')]</toggle>
      <date_time>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/DateTime-black_new.svg')]</date_time>
-     
+     <gps>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/GPS-black_new.svg')]</gps>
+     <timestamp>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/TimeStamp-black_new.svg')]</timestamp>
+     <childrecord>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/ChildRecord-black_new.svg')]</childrecord>
+    <staticmedia>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Form.svg')]</staticmedia>
+    <qrcode>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/QrCode-black_new.svg')]</qrcode>
+    <stopwatch>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Stopwatch-black_new.svg')]</stopwatch>
+    <counter>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Counter-black_new.svg')]</counter>
+    <geofence>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Geofence-black_new.svg')]</geofence>
+    <applygeofence>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Apply Geofence-black_new.svg')]</applygeofence>
+    <barcode>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Barcode-black_new.svg')]</barcode>
+    <document>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Document-black_new.svg')]</document>
+    <audio>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Audio-black_new.svg')]</audio>
+    <video>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Video-black_new.svg')]</video>
+    <formula>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Formula-black_new.svg')]</formula>
+    <language>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Language-black_new.svg')]</language>
+    <weblink>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Weblink-black_new.svg')]</weblink>
+    <uniqueid>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Unique ID-black_new.svg')]</uniqueid>
+    <autonumber>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Auto-number-black_new.svg')]</autonumber>
+    <interactive>//img[contains(@src,'')]</interactive>
+    
+
+
      //set text in textbox
      <textbox_text>//input[@ng-reflect-model='Text' and @ng-reflect-type="prompttext"]</textbox_text>
 
@@ -79,6 +100,42 @@
      
      //DATE TIME
      <date_time_picker>//span[text()='Date time both']</date_time_picker>
+
+
+     //GPS
+     <capturetype>//mat-select[@ng-reflect-model="manual"]</capturetype>
+
+     //TIMESTAMP
+     <mode>//mat-select[@ng-reflect-model="ontap"]</mode>
+
+
+     //CHILD RECORD
+     <childform>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[1]/mat-expansion-panel/div/div/div/div[1]/mat-form-field/div/div[1]/div/mat-select/div</childform>
+     <childform_user>//span[text()=' User']</childform_user>
+
+     //QR CODE
+     <qrcode_subtype>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[1]/mat-expansion-panel/div/div/div/div[1]/mat-form-field/div/div[1]/div/mat-select</qrcode_subtype>
+
+     //stopwatch
+     <stopwatch_indent>//input[@ng-reflect-type="number"]</stopwatch_indent>
+
+     //counter
+     <counter_unit>//div[contains(., 'Unit')]/input</counter_unit>
+     <counter_indent>//input[@ng-reflect-type="number"]</counter_indent>
+
+     //geofence
+     <geofence_centre>//div[contains(., 'Centre')]/mat-select</geofence_centre>
+     <geofence_radius>//div[contains(., 'Radius')]/input</geofence_radius>
+
+     //applygeofence
+     <applygeofence_object>//div[contains(., 'Which Object')]/mat-select</applygeofence_object>
+
+     //document
+     <document_type>//div[contains(., 'Allowed file type')]/mat-select</document_type>
+     <document_size>//div[contains(., 'File size limit')]/input</document_size>
+
+     //weblink
+     <target_url>//div[contains(., 'Target URL')]/input</target_url>
      
      <widget_panel>//div[@class="builder-frame-left-panel ng-tns-c556-5 ng-star-inserted"]</widget_panel>
      <expand_widget>//img[@src="/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/dropdown1.svg"]</expand_widget>

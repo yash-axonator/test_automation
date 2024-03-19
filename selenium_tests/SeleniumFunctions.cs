@@ -22,7 +22,7 @@ public class SeleniumFunctions
    public void login(IWebDriver driver, string user , string pass)
    {
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
+       Thread.Sleep(TimeSpan.FromSeconds(10));
       //enter username
       IWebElement username = driver.FindElement(By.XPath(xpathReader.GetXPath("username")));
       username.SendKeys(user);
@@ -42,6 +42,7 @@ public class SeleniumFunctions
    //SIGN UP
    public void signUp(IWebDriver driver, string fname,string lname,string email,string pass, string org, string num, string desc)
    {
+      Thread.Sleep(TimeSpan.FromSeconds(10));
       IWebElement signup = driver.FindElement(By.XPath(xpathReader.GetXPath("signup")));
       signup.Click();
 
@@ -68,6 +69,64 @@ public class SeleniumFunctions
        //enter number
       IWebElement number = driver.FindElement(By.XPath(xpathReader.GetXPath("number")));
       number.SendKeys(num);
+
+       //enter description
+      IWebElement  description= driver.FindElement(By.XPath(xpathReader.GetXPath("description")));
+      description.SendKeys(desc);
+
+      //click on sign in button
+      IWebElement  signin= driver.FindElement(By.XPath(xpathReader.GetXPath("signin")));
+      signin.Click();
+
+
+   }
+
+   public void signUpQA(IWebDriver driver, string fname,string lname,string email,string pass,string country, string industry,string org, string num, string desc)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(10));
+      IWebElement signup = driver.FindElement(By.XPath(xpathReader.GetXPath("signup")));
+      signup.Click();
+
+      //enter first name
+      IWebElement firstname = driver.FindElement(By.XPath(xpathReader.GetXPath("firstname")));
+      firstname.SendKeys(fname);
+
+      //enter last name
+      IWebElement lastname = driver.FindElement(By.XPath(xpathReader.GetXPath("lastname")));
+      lastname.SendKeys(lname);
+
+      //enter email
+      IWebElement username = driver.FindElement(By.XPath(xpathReader.GetXPath("username")));
+      username.SendKeys(email);
+
+      //enter password
+      IWebElement password = driver.FindElement(By.XPath(xpathReader.GetXPath("pass_sign")));
+      password.SendKeys(pass);
+
+       //select country
+      IWebElement select_country = driver.FindElement(By.XPath(xpathReader.GetXPath("select_country")));
+      select_country.Click();
+
+      string country_xpath = $"//option[text()='{country}']";
+      IWebElement get_country = driver.FindElement(By.XPath(country_xpath));
+      get_country.Click();
+
+
+      //enter organization
+      IWebElement organization = driver.FindElement(By.XPath(xpathReader.GetXPath("organization")));
+      organization.SendKeys(org);
+
+       //enter number
+      IWebElement number = driver.FindElement(By.XPath(xpathReader.GetXPath("number")));
+      number.SendKeys(num);
+
+      //select industry
+      IWebElement select_ind = driver.FindElement(By.XPath(xpathReader.GetXPath("select_ind")));
+      select_ind.Click();
+
+      string ind_xpath = $"//option[text()='{industry}']";
+      IWebElement get_ind = driver.FindElement(By.XPath(ind_xpath));
+      get_ind.Click();
 
        //enter description
       IWebElement  description= driver.FindElement(By.XPath(xpathReader.GetXPath("description")));
@@ -1398,7 +1457,7 @@ public class SeleniumFunctions
       
    }
 
-   public void addAutoNumberQA(IWebDriver driver)
+   public void addAutoNumberQA(IWebDriver driver, string length)
    {
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
@@ -1442,7 +1501,10 @@ public class SeleniumFunctions
       // header_title.SendKeys(title);
     Thread.Sleep(TimeSpan.FromSeconds(5));
     
-
+    IWebElement autonumber_length = driver.FindElement(By.XPath(xpathReader.GetXPath("autonumber_length")));
+    autonumber_length.SendKeys(length);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
     expand.Click();
     
       
@@ -1580,6 +1642,10 @@ public class SeleniumFunctions
       Thread.Sleep(TimeSpan.FromSeconds(20));
       IWebElement release_version = driver.FindElement(By.XPath(xpathReader.GetXPath("release_version")));
       release_version.Click();
+
+       Thread.Sleep(TimeSpan.FromSeconds(60));
+       IWebElement container = driver.FindElement(By.XPath(xpathReader.GetXPath("container")));
+       container.Click();
 
    }
 

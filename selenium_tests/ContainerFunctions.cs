@@ -106,9 +106,90 @@ public class ContainerFunctions
       choose_photo.SendKeys(path);
    }
 
+   public void gpsLocateMe(IWebDriver driver)
+   {
+      IWebElement locateme = driver.FindElement(By.XPath(xpathReader.GetXPath("gps_locateme")));
+      locateme.Click();
+   }
+
+   public void stopWatch(IWebDriver driver,int time)
+   {
+      IWebElement start = driver.FindElement(By.XPath(xpathReader.GetXPath("stopwatch_start")));
+      start.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(time));
+
+      IWebElement stop = driver.FindElement(By.XPath(xpathReader.GetXPath("stopwatch_stop")));
+      stop.Click();
+   }
+
+   public void incCounter(IWebDriver driver,int num)
+   {
+      IWebElement counter_inc = driver.FindElement(By.XPath(xpathReader.GetXPath("counter_inc")));
+
+      for(int i=1;i<=num;i++)
+      {
+         counter_inc.Click();
+      }
+   }
+
+   public void uploadVideo(IWebDriver driver,string path)
+   {
+       IWebElement choose_video = driver.FindElement(By.XPath(xpathReader.GetXPath("choose_video")));
+      
+      
+      choose_video.SendKeys(path);
+   }
+
+   public void selectChoice(IWebDriver driver,string listname,string choice)
+   {
+      string choicelist_xpath = $"//div[contains(.,'{listname}')]/mat-select";
+
+      IWebElement choicelist = driver.FindElement(By.XPath(choicelist_xpath));
+      choicelist.Click();
+
+      string choice_xpath = $"//span[text()='{choice}']";
+
+      IWebElement select_choice = driver.FindElement(By.XPath(choice_xpath));
+      select_choice.Click();
+
+   }
+
+   public void addChildRecord(IWebDriver driver,string mail)
+   {
+      IWebElement child_record = driver.FindElement(By.XPath(xpathReader.GetXPath("child_form")));
+      child_record.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(10));
+
+      IWebElement child_form_email = driver.FindElement(By.XPath(xpathReader.GetXPath("child_form_email")));
+      child_form_email.SendKeys(mail);
+
+      IWebElement child_form_submit = driver.FindElement(By.XPath(xpathReader.GetXPath("child_form_submit")));
+      child_form_submit.Click();
+   }
+
+   public void addUniqueId(IWebDriver driver)
+   {
+      IWebElement tap_here = driver.FindElement(By.XPath(xpathReader.GetXPath("tap_here")));
+      tap_here.Click();
+      Thread.Sleep(TimeSpan.FromSeconds(3));
+   }
+
    public void submitForm(IWebDriver driver)
    {
       IWebElement submit = driver.FindElement(By.XPath(xpathReader.GetXPath("submit")));
       submit.Click();
+   }
+
+   public void viewFormData(IWebDriver driver, string form)
+   {
+      string form_xpath=$"//span[text()=' {form} ']";
+      IWebElement select_form = driver.FindElement(By.XPath(form_xpath));
+      select_form.Click();
+      Thread.Sleep(TimeSpan.FromSeconds(20));
+
+      IWebElement view_data = driver.FindElement(By.XPath(xpathReader.GetXPath("view_data")));
+      view_data.Click();
    }
 }   

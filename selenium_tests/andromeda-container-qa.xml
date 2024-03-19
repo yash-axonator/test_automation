@@ -11,8 +11,21 @@
   <year>//*[@class="mat-calendar-arrow"]</year>
 
   <choose_document>//input[@id="Document"]</choose_document>
+  <choose_video>//input[@id="Video"]</choose_video>
+
+  <gps_locateme>//span[text()='Locate Me ']</gps_locateme>
+
+  <stopwatch_start>//span[text()=' Start ']</stopwatch_start>
+  <stopwatch_stop>//span[text()=' Stop ']</stopwatch_stop>
+
+  <counter_inc>//mat-icon[@data-mat-icon-name="axo_counter_plus"]</counter_inc>
 
   <submit>//span[text()=' Submit ']</submit>
 
+  <view_data>/html/body/app-root/app-auth-component/layout/classic-layout/div/div/div[2]/app-data-views/div/div[3]/form-object-list/div/div/div/div/table/tbody/tr[1]/td[29]/div/div[2]</view_data>
 
+  <child_form>//mat-icon[@title="Add Child Record"]</child_form>
+  <child_form_email>//input[@name="Email"]</child_form_email>
+   <child_form_submit>//span[text()=' Submit ']</child_form_submit>
+   <tap_here>//span[text()='Tap here']</tap_here>
 </xpaths>

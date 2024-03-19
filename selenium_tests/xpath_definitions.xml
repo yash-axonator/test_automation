@@ -23,6 +23,18 @@
     <form_name>//input[@class='form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength' and @type='text']</form_name>
     <create_form_button>//button[@class='btn axo-btn btn-primary ng-binding' and @type='submit']</create_form_button>
 
+    //DROP WIDGET HERE
+    <drop_here>//div[text()=' Drop widget here....']</drop_here>
+    <drop_here_inserted>//widget[@id='widget-System Fields']</drop_here_inserted>
+
+    //DRAG DROP WIDGET
+    <textbox>//img[contains(@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Text-black_new.svg')]</textbox>
+     <choicelist>//img[contains(@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Choice-list-black_new')]</choicelist>
+     <group_header>//img[contains (@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Groupheader-black_new.svg')]</group_header>
+     <photo>//img[contains (@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Photo-black_new.svg')]</photo>
+     <toggle>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Toggle-black_new.svg')]</toggle>
+     
+
 
     //popup block
     <popup1>//div[@class='modal_close' and @ng-click='cancel()']</popup1>

@@ -3,6 +3,9 @@
     <username>//input[@name='Username']</username>
     <password>//input[@name="Password"]</password>
     <login_button>//button[@name='button']</login_button>
+    <!-- <username>//input[@name='username']</username>
+    <password>//input[@name="password"]</password>
+    <login_button>//button[@id='login_btn']</login_button> -->
 
     //sign up
     <signup>//a[text()='Sign Up']</signup>
@@ -27,7 +30,7 @@
     //create form button
     <create_form>//span[@class='create-report' and text()='Create Form']/ancestor::button</create_form>
 
-    <form_name>//input[@ng-reflect-model="Untitled Form"]</form_name>
+    <form_name>//*[@id="mat-input-0"]</form_name>
     <create_form_button>//button[@class='btn axo-btn btn-primary ng-binding' and @type='submit']</create_form_button>
     
      
@@ -65,22 +68,22 @@
 
 
      //set text in textbox
-     <textbox_text>//input[@ng-reflect-model='Text' and @ng-reflect-type="prompttext"]</textbox_text>
+     <textbox_text>//div[contains(., 'Label (English)')]/input</textbox_text>
 
      //input type in textbox
-     <input_type>//*[@id="mat-select-value-7"]</input_type>
+     <input_type>//div[contains(. ,'Plain Text')]/mat-select</input_type>
      <dropdown>//div[@id="mat-select-0-panel"]</dropdown>
 
      //unique identifier textbox
-     <unique_textbox>//input[@ng-reflect-model='Text' and @ng-reflect-type="text"]</unique_textbox>
+     <unique_textbox>//div[contains(. ,'Unique Identifier')]/input</unique_textbox>
 
      //CHOICE Choice
 
      //Choice list label
-     <choice_list_label>//input[@ng-reflect-type="prompttext"]</choice_list_label>
+     <choice_list_label>//div[contains(., 'Label (English)')]/input</choice_list_label>
      
      //choicelist text
-     <choice_text>//input[@ng-reflect-type="choicetext"]</choice_text>
+     <choice_text>//div[contains(., 'Choices (default)')]/input</choice_text>
 
      //choice list datatype
      <choice_list_datatype_fixed>//span[text()='Fixed List']</choice_list_datatype_fixed>
@@ -89,15 +92,15 @@
      <reference_to_user>//span[text()=' User']</reference_to_user>
 
      //add group header title
-     <header_title>//input[@ng-reflect-model="Group Header" and @ng-reflect-type="text" and @aria-required="false"]</header_title>
-     <header_indent>//input[@ng-reflect-type="number"]</header_indent>
+     <header_title>//div[contains(. ,'Header Title')]/input</header_title>
+     <header_indent>//div[contains(.,'Increase Indent by')]/input</header_indent>
 
      //photo label
-     <photo_label>//input[@ng-reflect-model="Photo" and @ng-reflect-type="prompttext" and @aria-required="true"]</photo_label>
+     <photo_label>//div[contains(., 'Label (English)')]/input</photo_label>
      <photo_required>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[2]/mat-expansion-panel/div/div/div/div[5]/div/mat-slide-toggle/label/span[1]/span/span[1]</photo_required>
 
      //toggle label
-     <toggle_label>//input[@ng-reflect-model="Toggle" and @ng-reflect-type="prompttext"]</toggle_label>
+     <toggle_label>//div[contains(., 'Label (English)')]/input</toggle_label>
      <toggle_placeholder>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[2]/mat-expansion-panel/div/div/div/div[4]/mat-form-field/div/div[1]/div/input</toggle_placeholder>
      
      //DATE TIME
@@ -105,10 +108,10 @@
 
 
      //GPS
-     <capturetype>//mat-select[@ng-reflect-model="manual"]</capturetype>
+     <capturetype>//div[contains(.,'Manual')]/mat-select</capturetype>
 
      //TIMESTAMP
-     <mode>//mat-select[@ng-reflect-model="ontap"]</mode>
+     <mode>//div[contains(.,'On Tap')]/mat-select</mode>
 
 
      //CHILD RECORD
@@ -119,11 +122,11 @@
      <qrcode_subtype>/html/body/app-root/app-auth-component/layout/andromeda-layout/div[3]/div[2]/div/app-sculptor/form-builder-master/div/div[2]/div[3]/form-builder-properties/mat-tab-group/div/mat-tab-body[1]/div/form/form/mat-accordion[1]/mat-expansion-panel/div/div/div/div[1]/mat-form-field/div/div[1]/div/mat-select</qrcode_subtype>
 
      //stopwatch
-     <stopwatch_indent>//input[@ng-reflect-type="number"]</stopwatch_indent>
+     <stopwatch_indent>//div[contains(.,'Increase Indent by')]/input</stopwatch_indent>
 
      //counter
      <counter_unit>//div[contains(., 'Unit')]/input</counter_unit>
-     <counter_indent>//input[@ng-reflect-type="number"]</counter_indent>
+     <counter_indent>//div[contains(.,'Increase Indent by')]/input</counter_indent>
 
      //geofence
      <geofence_centre>//div[contains(., 'Centre')]/mat-select</geofence_centre>

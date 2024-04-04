@@ -28,7 +28,8 @@ public class SeleniumTest
         seleniumFunctions = new SeleniumFunctions(); //creating object of class containing fucntion
         containerFunctions = new ContainerFunctions(); //container page fucntions
         // driver.Navigate().GoToUrl("https://andromeda-identity-qa.axonator.com/"); https://app.axonator.com/
-        driver.Navigate().GoToUrl("https://andromeda-builder-qa.axonator.com/");
+        // driver.Navigate().GoToUrl("https://andromeda-builder-qa.axonator.com/");
+        driver.Navigate().GoToUrl("https://builder.axonator.com/");
         driver.Manage().Window.Maximize();
         
 
@@ -38,23 +39,23 @@ public class SeleniumTest
     [Category("Selenium")]
     public void firstTest()
     {
-        
-        // seleniumFunctions.signUpQA(driver,"yash","lunkad","yash_test5@axonator.com","Welcome@12345","India","Manufacturing","axonator","7448125003", "descdescdescdescdescdescdescdescdescdescdescdescdesc");
-        // seleniumFunctions.login(driver,"yash1@axonator.com","Welcome@12345"); //prod user
-        // Thread.Sleep(TimeSpan.FromSeconds(5));
+
+        // seleniumFunctions.signUpQA(driver,"yash","lunkad","yash_axo_test3@axonator.com","Welcome@12345","India","Manufacturing","axonator","7448125003", "descdescdescdescdescdescdescdescdescdescdescdescdesc");
+        seleniumFunctions.login(driver,"yash_test_x1_release@axonator.com","Welcome@12345"); //prod user
+        Thread.Sleep(TimeSpan.FromSeconds(5));
         // driver.Navigate().GoToUrl("https://andromeda-builder-qa.axonator.com/");
-        seleniumFunctions.login(driver,"yash_test5@axonator.com","Welcome@12345"); //QA 
-        // Thread.Sleep(TimeSpan.FromSeconds(5));
-        // seleniumFunctions.closePopUp2(driver);
-        // seleniumFunctions.closePopUp1(driver);
-        // seleniumFunctions.closePopUp2(driver);
-        // seleniumFunctions.closePopUp1(driver);
+        // seleniumFunctions.login(driver,"yash_test5@axonator.com","Welcome@12345"); //QA 
+        Thread.Sleep(TimeSpan.FromSeconds(5));
+        seleniumFunctions.closePopUp2(driver);
+        seleniumFunctions.closePopUp1(driver);
+        seleniumFunctions.closePopUp2(driver);
+        seleniumFunctions.closePopUp1(driver);
         Thread.Sleep(TimeSpan.FromSeconds(5));
         seleniumFunctions.createAppQA(driver);
         Thread.Sleep(TimeSpan.FromSeconds(10));
         seleniumFunctions.createFormQA(driver,"safety");
         Thread.Sleep(TimeSpan.FromSeconds(10));
-        seleniumFunctions.addTextBoxQA(driver,"sample_text","email","textbox_unique");
+        seleniumFunctions.addTextBoxQA(driver,"sample_text","Email","textbox_unique");
         string[] choice_items = new string[] { "To Do", "In Progress", "Completed" };
         seleniumFunctions.addChoiceListQA(driver,choice_items,"Choice List");
           
@@ -70,8 +71,8 @@ public class SeleniumTest
         seleniumFunctions.scrollDown(driver);
         seleniumFunctions.addToggleQA(driver,"toggle_label","toggle_placeholder");
         seleniumFunctions.addDateTimeQA(driver," Date");
-        seleniumFunctions.addGpsQA(driver,"ontap");
-        seleniumFunctions.addTimeStampQA(driver,"onopen");
+        seleniumFunctions.addGpsQA(driver," On Tap");
+        seleniumFunctions.addTimeStampQA(driver," On Open");
         seleniumFunctions.addChildRecordQA(driver);
         seleniumFunctions.addStaticMediaQA(driver);  
         seleniumFunctions.addQrCodeQA(driver," Default");
@@ -102,9 +103,9 @@ public class SeleniumTest
         driver.SwitchTo().Window(tabs[1]);
 
         Thread.Sleep(TimeSpan.FromSeconds(5));
-        // driver.Navigate().GoToUrl("https://andromeda-container-qa.axonator.com/apps");
+        // driver.Navigate().GoToUrl("https://acontainer-qa.axonator.com/apps");
         Thread.Sleep(TimeSpan.FromSeconds(40));
-        containerFunctions.selectApp(driver,"Untitled App 19","safety");
+        containerFunctions.selectApp(driver,"Untitled App 4","safety");
          Thread.Sleep(TimeSpan.FromSeconds(20));
         containerFunctions.addText(driver,"hello@gmail.com","email");
         containerFunctions.uploadPhoto(driver);
@@ -124,8 +125,48 @@ public class SeleniumTest
         Thread.Sleep(TimeSpan.FromSeconds(5));
 
         containerFunctions.viewFormData(driver,"safety");
+        
+        
+        //X1
 
-        Assert.Pass();
+
+        // seleniumFunctions.signUpQA(driver,"yash","lunkad","yash_test_x1_release@axonator.com","Welcome@12345","India","Manufacturing","axonator","7448125003", "descdescdescdescdescdescdescdescdescdescdescdescdesc");
+        // // seleniumFunctions.login(driver,"yash1@axonator.com","Welcome@12345"); //prod user
+        // // // Thread.Sleep(TimeSpan.FromSeconds(5));
+        // // driver.Navigate().GoToUrl("https://qa.axonator.com/");
+        // // seleniumFunctions.login(driver,"yash_test5@axonator.com","Welcome@12345"); //QA 
+        // Thread.Sleep(TimeSpan.FromSeconds(30));
+        // seleniumFunctions.closePopUp2(driver);
+        // seleniumFunctions.closePopUp1(driver);
+        // seleniumFunctions.closePopUp2(driver);
+        // seleniumFunctions.closePopUp1(driver);
+        // Thread.Sleep(TimeSpan.FromSeconds(5));
+        // seleniumFunctions.createApp(driver);
+        // Thread.Sleep(TimeSpan.FromSeconds(10));
+        // seleniumFunctions.createForm(driver,"safety");
+        // Thread.Sleep(TimeSpan.FromSeconds(20));
+        // seleniumFunctions.addTextBox(driver,"sample_text");
+        // string[] choice_items = new string[] { "To Do", "In Progress", "Completed" };
+        // seleniumFunctions.addChoiceList(driver,choice_items,"Choice List");
+          
+        // // Thread.Sleep(TimeSpan.FromSeconds(2));
+        
+        // // // seleniumFunctions.addChoiceListQA(driver,"choice_label1");
+        // // // seleniumFunctions.scrollDown(driver);
+        // seleniumFunctions.addGroupHeader(driver,"group header title",5);
+        // Thread.Sleep(TimeSpan.FromSeconds(5));
+        // // // seleniumFunctions.scrollDown(driver);
+        // seleniumFunctions.addPhoto(driver,"photo_label");
+    
+        // Thread.Sleep(TimeSpan.FromSeconds(5));
+        // seleniumFunctions.saveForm(driver);
+
+        // Thread.Sleep(TimeSpan.FromSeconds(20));
+        // seleniumFunctions.release_app(driver);
+
+        
+
+        // Assert.Pass();
     }
 
     [TearDown]

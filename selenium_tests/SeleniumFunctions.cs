@@ -16,6 +16,7 @@ public class SeleniumFunctions
    public SeleniumFunctions()
    {
       xpathReader = new XPathReader("/home/l21/Documents/qa_automation/selenium_tests/andromeda-builder-qa.xml");
+      // xpathReader = new XPathReader("/home/l21/Documents/qa_automation/selenium_tests/xpath_definitions.xml");
    }
 
    //LOGIN
@@ -140,12 +141,12 @@ public class SeleniumFunctions
    }
 
    public void createApp(IWebDriver driver){
-      // IWebElement build = driver.FindElement(By.XPath(xpathReader.GetXPath("build")));
-      // build.Click();
+      IWebElement build = driver.FindElement(By.XPath(xpathReader.GetXPath("build")));
+      build.Click();
       
-      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-      // IWebElement build_btn = driver.FindElement(By.XPath(xpathReader.GetXPath("build_btn")));
-      // build_btn.Click();
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement build_btn = driver.FindElement(By.XPath(xpathReader.GetXPath("build_btn")));
+      build_btn.Click();
 
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       closePopUp2(driver);
@@ -156,7 +157,7 @@ public class SeleniumFunctions
       
 
       IWebElement app_name = driver.FindElement(By.XPath(xpathReader.GetXPath("app_name")));
-      app_name.SendKeys("app3");
+      app_name.SendKeys("testing_prod21");
 
       IWebElement app_desc = driver.FindElement(By.XPath(xpathReader.GetXPath("app_desc")));
       app_desc.SendKeys("desc1");
@@ -246,17 +247,17 @@ public class SeleniumFunctions
       create_form_button.Click();
    }
 
-   IWebElement popup3_video = driver.FindElement(By.XPath(xpathReader.GetXPath("popup3_video")));
-   try{
-      if(popup3_video!=null)
-      {
-         popup3_video.Click();
-      }
-   }
-   catch(ElementClickInterceptedException)
-   {
+   // IWebElement popup3_video = driver.FindElement(By.XPath(xpathReader.GetXPath("popup3_video")));
+   // try{
+   //    if(popup3_video!=null)
+   //    {
+   //       popup3_video.Click();
+   //    }
+   // }
+   // catch(ElementClickInterceptedException)
+   // {
 
-   }
+   // }
  
    }
 
@@ -284,7 +285,7 @@ public class SeleniumFunctions
    {
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("textbox")));
-      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here")));
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
       
       // Perform the drag and drop action
   
@@ -299,10 +300,13 @@ public class SeleniumFunctions
       screenshot1.SaveAsFile("addtextbox1.png");
       
       IWebElement select_text_area = driver.FindElement(By.XPath(xpathReader.GetXPath("select_textbox")));
-      select_text_area.Click();
+      // select_text_area.Click();
 
-      IWebElement add_text = driver.FindElement(By.XPath(xpathReader.GetXPath("set_text")));
-      add_text.SendKeys(text);
+      // select_text_area.Clear();
+      // select_text_area.SendKeys(text);
+
+      // IWebElement add_text = driver.FindElement(By.XPath(xpathReader.GetXPath("set_text")));
+      // add_text.SendKeys(text);
       
 
 
@@ -360,7 +364,7 @@ public class SeleniumFunctions
       input_type.Click();
 
 
-      string dropdown_value_xpath = $"//mat-option[@ng-reflect-value='{optionText}']";
+      string dropdown_value_xpath = $"//span[text()=' {optionText}']";
 
       IWebElement dropdown = driver.FindElement(By.XPath(dropdown_value_xpath));
       dropdown.Click(); 
@@ -373,6 +377,55 @@ public class SeleniumFunctions
 
 
       
+   }
+
+   public void addChoiceList(IWebDriver driver,string[] choice_items, string label)
+   {
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("choicelist")));
+      HighlightElement(driver, source);
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver, target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+    actions.DragAndDrop(source, target).Build().Perform();
+
+      
+      // if(IsElementPresent(driver, By.XPath("//*[@class='text-widget selected-widget ng-untouched ng-pristine ng-star-inserted ng-valid']")))
+      // {
+      //     Console.WriteLine("Drag-and-drop action was successful!");
+      // }
+      // else{
+      //     Console.WriteLine("Drag-and-drop action was unsuccessful!");
+      // }
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      // IWebElement choice_text = driver.FindElement(By.XPath(xpathReader.GetXPath("choice_text")));
+      // choice_text.Click();
+      // choice_text.Clear();
+      // foreach (var item in choice_items)
+      // {
+      //    choice_text.SendKeys(item);
+      //    choice_text.SendKeys(",");
+
+      // }
+      // choice_text.SendKeys(Keys.Backspace);
+      // Thread.Sleep(TimeSpan.FromSeconds(5));
+      
+      // //set label
+      // IWebElement choice_list_label = driver.FindElement(By.XPath(xpathReader.GetXPath("choice_list_label")));
+      // choice_list_label.Click();
+      // choice_list_label.Clear();
+      // choice_list_label.SendKeys(label);
+
+      
+
+      
+
+
+
    }
 
    public void addChoiceListQA(IWebDriver driver,string[] choice_items, string label)
@@ -467,6 +520,51 @@ public class SeleniumFunctions
    
    }
 
+   public void addGroupHeader(IWebDriver driver,string title, int indent)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("group_header")));
+      HighlightElement(driver,source);
+
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+   //  IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+   //  header_title.Click();
+   //  header_title.Clear();
+   //  header_title.SendKeys(title);
+
+   //  IWebElement header_indent = driver.FindElement(By.XPath(xpathReader.GetXPath("header_indent")));
+   //  header_indent.Click();
+   //  header_indent.Clear();
+   //  header_indent.SendKeys(indent.ToString());
+
+   //  expand.Click();
+    
+      
+   }
+
 
    public void addGroupHeaderQA(IWebDriver driver,string title, int indent)
    {
@@ -523,6 +621,50 @@ public class SeleniumFunctions
 
     expand.Click();
     
+      
+   }
+
+   public void addPhoto(IWebDriver driver,string title)
+   {
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+
+
+      Thread.Sleep(TimeSpan.FromSeconds(5));
+      IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("photo")));
+      HighlightElement(driver,source);
+
+
+
+      driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
+      HighlightElement(driver,target);
+    
+      // Perform the drag and drop action
+  
+    Actions actions = new Actions(driver);
+     actions.DragAndDrop(source, target).Build().Perform();
+   //   actions.ClickAndHold(source)
+   //             .MoveToElement(target)
+   //             .Release()
+   //             .Build()
+   //             .Perform();
+
+      // driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+      // IWebElement header_title = driver.FindElement(By.XPath(xpathReader.GetXPath("header_title")));
+      // header_title.Clear();
+      // header_title.SendKeys(title);
+    Thread.Sleep(TimeSpan.FromSeconds(5));
+    
+   //  //add label
+   //   IWebElement photo_label = driver.FindElement(By.XPath(xpathReader.GetXPath("photo_label")));
+   //  photo_label.Click();
+   //  photo_label.Clear();
+   //  photo_label.SendKeys(title);
+
+   //  IWebElement photo_required = driver.FindElement(By.XPath(xpathReader.GetXPath("photo_required")));
+   //  photo_required.Click();
+
+   //  expand.Click();
       
    }
 
@@ -702,7 +844,7 @@ public class SeleniumFunctions
      capturetype.Click();
      Thread.Sleep(TimeSpan.FromSeconds(5));
 
-     string capture_type_xpath = $"//mat-option[@ng-reflect-value='{capture_type}']";
+     string capture_type_xpath = $"//span[text()='{capture_type}']";
      IWebElement select_capture_type = driver.FindElement(By.XPath(capture_type_xpath));
      select_capture_type.Click();
 
@@ -734,7 +876,7 @@ public class SeleniumFunctions
      mode.Click();
      Thread.Sleep(TimeSpan.FromSeconds(5));
 
-     string mode_value_xpath = $"//mat-option[@ng-reflect-value='{mode_value}']";
+     string mode_value_xpath = $"//span[text()='{mode_value}']";
      IWebElement select_mode_value = driver.FindElement(By.XPath(mode_value_xpath));
      select_mode_value.Click();
    }
@@ -1572,6 +1714,8 @@ public class SeleniumFunctions
 
    }
 
+   
+
     public void saveFormQA(IWebDriver driver)
    {
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
@@ -1619,15 +1763,7 @@ public class SeleniumFunctions
         }
       
 
-       try
-        {
-            IAlert alert = driver.SwitchTo().Alert();
-            alert.Accept(); // Or alert.Dismiss();
-        }
-        catch (NoAlertPresentException e)
-        {
-            
-        }
+       
 
       IWebElement release_version = driver.FindElement(By.XPath(xpathReader.GetXPath("release_version")));
       release_version.Click();

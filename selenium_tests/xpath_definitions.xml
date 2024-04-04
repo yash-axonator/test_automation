@@ -3,16 +3,19 @@
     <username>//input[@id='Username']</username>
     <password>//input[@id="show-password"]</password>
     <login_button>//button[@name='button']</login_button>
+    
 
     //sign up
-    <signup>//a[text()='Sign Up']</signup>
+   <signup>//a[text()='Sign Up']</signup>
     <firstname>//input[@id='FirstName']</firstname>
     <lastname>//input[@id='Lastname']</lastname>
-    <pass_sign>//input[@id='Password']</pass_sign>
+    <pass_sign>//input[@id='passwordInput']</pass_sign>
+    <select_country>//select[@id="countrySelect"]</select_country>
     <organization>//input[@id='Organiztion']</organization>
-    <number>//input[@id='Phone']</number>
+    <number>//input[@id='phoneInput']</number>
+    <select_ind>//select[@id="industry-dropdown"]</select_ind>
     <description>//textarea[@id='looking_for']</description>
-    <signin>//input[@value='Sign In']</signin>
+    <signin>//input[@value='Create Account']</signin>
 
     //build your app now button
     <build>//button[text()='Build App Now ']</build>
@@ -23,18 +26,27 @@
     <form_name>//input[@class='form-control ng-pristine ng-untouched ng-invalid ng-invalid-required ng-valid-maxlength' and @type='text']</form_name>
     <create_form_button>//button[@class='btn axo-btn btn-primary ng-binding' and @type='submit']</create_form_button>
 
-    //DROP WIDGET HERE
-    <drop_here>//div[text()=' Drop widget here....']</drop_here>
-    <drop_here_inserted>//widget[@id='widget-System Fields']</drop_here_inserted>
+    <build>//button[text()='Build App Now ']</build>
+    <build_btn>//button[@id='i-have-both-btn']</build_btn>
+    <create_app>//button[contains(., 'Create App')]</create_app>
+    <app_name>//input[@name='app_name']</app_name>
+    <app_desc>//textarea[@name='password']</app_desc>
+    <create_app_btn>//button[@class="axo-btn btn-primary ng-binding" and @type="submit"]</create_app_btn>
 
-    //DRAG DROP WIDGET
-    <textbox>//img[contains(@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Text-black_new.svg')]</textbox>
-     <choicelist>//img[contains(@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Choice-list-black_new')]</choicelist>
-     <group_header>//img[contains (@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Groupheader-black_new.svg')]</group_header>
-     <photo>//img[contains (@src, '/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Photo-black_new.svg')]</photo>
-     <toggle>//img[contains(@src,'/assets/icons/axo/sculptor/update_svg/new_toolbar_icons_svg/Toggle-black_new.svg')]</toggle>
-     
+    <drop_here_inserted>//p[@title="System Fields"]</drop_here_inserted>
 
+    <textbox>//img[contains(@src,'https://static.axonator.com/static/img/app-builder-icons/textbox-widget.svg')]</textbox>
+    <select_textbox>//p[@title="Textbox"]</select_textbox>
+
+    <choicelist>//div[@id="choicelist-widget"]</choicelist>
+    <group_header>//div[@id="groupheader-widget"]</group_header>
+    <photo>//div[@id="imagecapture-widget"]</photo>
+
+    <save_form>//button[@id="saveFormBtn"]</save_form>
+
+    //release app
+     <release_app>//button[@ng-click="confirmPublish()"]</release_app>
+     <release_version>//button[@ng-click="publishForTest('P')"]</release_version>
 
     //popup block
     <popup1>//div[@class='modal_close' and @ng-click='cancel()']</popup1>

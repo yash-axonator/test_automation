@@ -20,8 +20,9 @@ public class SeleniumFunctions
    }
 
    //LOGIN
-   public void login(IWebDriver driver, string user , string pass)
+   public void login(IWebDriver driver, string user , string pass, ref TestLogger testLogger)
    {
+    try{
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
        Thread.Sleep(TimeSpan.FromSeconds(10));
       //enter username
@@ -36,13 +37,22 @@ public class SeleniumFunctions
       //click on login button
       IWebElement  login_button= driver.FindElement(By.XPath(xpathReader.GetXPath("login_button")));
       login_button.Click();
+      testLogger.Log("LOGIN PASS",passed: true);
+    }
+    catch(Exception e)
+    {
+       testLogger.Log("LOGIN FAIL",passed:false);
+
+    }
+
 
 
    }
     
    //SIGN UP
-   public void signUp(IWebDriver driver, string fname,string lname,string email,string pass, string org, string num, string desc)
+   public void signUp(IWebDriver driver, string fname,string lname,string email,string pass, string org, string num, string desc,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(10));
       IWebElement signup = driver.FindElement(By.XPath(xpathReader.GetXPath("signup")));
       signup.Click();
@@ -78,12 +88,20 @@ public class SeleniumFunctions
       //click on sign in button
       IWebElement  signin= driver.FindElement(By.XPath(xpathReader.GetXPath("signin")));
       signin.Click();
+      testLogger.Log("SIGNUP PASS",passed: true);
+    }
+    catch(Exception e)
+    {
+       testLogger.Log("SIGNUP FAIL",passed:false);
+
+    }
 
 
    }
 
-   public void signUpQA(IWebDriver driver, string fname,string lname,string email,string pass,string country, string industry,string org, string num, string desc)
+   public void signUpQA(IWebDriver driver, string fname,string lname,string email,string pass,string country, string industry,string org, string num, string desc, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(10));
       IWebElement signup = driver.FindElement(By.XPath(xpathReader.GetXPath("signup")));
       signup.Click();
@@ -136,11 +154,19 @@ public class SeleniumFunctions
       //click on sign in button
       IWebElement  signin= driver.FindElement(By.XPath(xpathReader.GetXPath("signin")));
       signin.Click();
+       testLogger.Log("SIGNUP PASS",passed: true);
+    }
+    catch(Exception e)
+    {
+       testLogger.Log("SIGNUP FAIL",passed:false);
+
+    }
 
 
    }
 
-   public void createApp(IWebDriver driver){
+   public void createApp(IWebDriver driver, ref TestLogger testLogger){
+    try{
       IWebElement build = driver.FindElement(By.XPath(xpathReader.GetXPath("build")));
       build.Click();
       
@@ -167,6 +193,13 @@ public class SeleniumFunctions
 
     Screenshot screenshot_app = ((ITakesScreenshot)driver).GetScreenshot();
       screenshot_app.SaveAsFile("createapp.png");
+       testLogger.Log("APP CREATION PASS",passed: true);
+    }
+    catch(Exception e)
+    {
+       testLogger.Log("APP CREATION FAIL",passed:false);
+
+    }
 
 
 
@@ -174,7 +207,8 @@ public class SeleniumFunctions
    }
 
    //CREATE FORM BUILDER QA
-   public void createAppQA(IWebDriver driver){
+   public void createAppQA(IWebDriver driver,   ref TestLogger testLogger ){
+    try{
       // IWebElement build = driver.FindElement(By.XPath(xpathReader.GetXPath("build")));
       // build.Click();
       
@@ -187,6 +221,13 @@ public class SeleniumFunctions
 
       IWebElement create_app = driver.FindElement(By.XPath(xpathReader.GetXPath("create_app")));
       create_app.Click();
+       testLogger.Log("APP CREATION PASS",passed: true);
+    }
+    catch(Exception e)
+    {
+       testLogger.Log("APP CREATION FAIL",passed:false);
+
+    }
 
    }
 
@@ -262,7 +303,8 @@ public class SeleniumFunctions
    }
 
    //CREATE FORM FOR BUILDER QA
-   public void createFormQA(IWebDriver driver,string f_name){
+   public void createFormQA(IWebDriver driver,string f_name,ref TestLogger testLogger){
+    try{
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
       IWebElement create_form = driver.FindElement(By.XPath(xpathReader.GetXPath("create_form")));
@@ -276,7 +318,14 @@ public class SeleniumFunctions
       form_name.Click();
       form_name.Clear();
       form_name.SendKeys(f_name);
+       testLogger.Log("FORM CREATION PASS",passed: true);
+    }
+    catch(Exception e)
+    {
+       testLogger.Log("FORM CREATION FAIL",passed:false);
 
+    }
+    
    }
   
 
@@ -1798,14 +1847,14 @@ public class SeleniumFunctions
             if (popup1 != null)
             {
                popup1.Click();
-                Console.WriteLine("Element closed");
+                // Console.WriteLine("Element closed");
             }
             
             
    }
    catch (NoSuchElementException)
         {
-            Console.WriteLine("Element not found.");
+            // Console.WriteLine("Element not found.");
         }
    }
 
@@ -1822,7 +1871,7 @@ public class SeleniumFunctions
             if (popup2 != null)
             {
                 popup2.Click();
-                Console.WriteLine("Element closed");
+                // Console.WriteLine("Element closed");
             }
 
             
@@ -1831,7 +1880,7 @@ public class SeleniumFunctions
    }
    catch (NoSuchElementException)
         {
-            Console.WriteLine("Element not found.");
+            // Console.WriteLine("Element not found.");
         }
    }
 

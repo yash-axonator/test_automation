@@ -1,0 +1,108 @@
+﻿<html xmlns:tp="http://schemas.datacontract.org/2004/07/Microsoft.VisualStudio.TestPlatform.Extensions.HtmlLogger.ObjectModel" xmlns:a="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+  <body>
+    <h1>Test run details</h1>
+    <div class="summary">
+      <div class="block"><span>Total tests</span><div class="total-tests">1</div><br></div>
+      <div class="block"><span>Passed  : </span><span class="passedTests">0</span><br><span>Failed  : </span><span class="failedTests">1</span><br><span>Skipped : </span><span class="skippedTests">0</span><br></div>
+      <div class="block"><span>Pass percentage</span><div class="pass-percentage">0 %</div><br></div>
+      <div class="block"><span>Run duration</span><div class="test-run-time">2s 626ms</div><br></div><br></div>
+    <h2>Failed Results</h2><details open=""><summary>/home/l21/Documents/qa_automation/selenium_tests/bin/Debug/net8.0/selenium_tests.dll</summary><div class="inner-row" Id="-183063853-failedResult">
+        <div class="leaf-division">
+          <div><span class="fail">✘</span><span> firstTest​</span><div class="duration"><span>1s 543ms</span><br></div>
+          </div>
+          <div class="error-info">
+    Error: <span class="error-message"><pre>System.InvalidOperationException : session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.) (SessionNotCreated)</pre></span><br>
+    Stack trace: <span class="error-stack-trace"><pre>   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities capabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeDriverService service, ChromeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeOptions options)
+   at selenium_tests.SeleniumTest.Setup() in /home/l21/Documents/qa_automation/selenium_tests/SeleniumTest.cs:line 34
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+</pre></span><br></div>
+        </div>
+      </div></details><h2>All Results</h2><details><summary>/home/l21/Documents/qa_automation/selenium_tests/bin/Debug/net8.0/selenium_tests.dll</summary><div class="inner-row" Id="-183063853">
+        <div class="leaf-division">
+          <div><span class="fail">✘</span><span> firstTest​</span><div class="duration"><span>1s 543ms</span><br></div>
+          </div>
+          <div class="error-info">
+    Error: <span class="error-message"><pre>System.InvalidOperationException : session not created: Chrome failed to start: exited normally.
+  (session not created: DevToolsActivePort file doesn't exist)
+  (The process started from chrome location /usr/bin/google-chrome is no longer running, so ChromeDriver is assuming that Chrome has crashed.) (SessionNotCreated)</pre></span><br>
+    Stack trace: <span class="error-stack-trace"><pre>   at OpenQA.Selenium.WebDriver.UnpackAndThrowOnError(Response errorResponse, String commandToExecute)
+   at OpenQA.Selenium.WebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.WebDriver.StartSession(ICapabilities capabilities)
+   at OpenQA.Selenium.WebDriver..ctor(ICommandExecutor executor, ICapabilities capabilities)
+   at OpenQA.Selenium.Chromium.ChromiumDriver..ctor(ChromiumDriverService service, ChromiumOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeDriverService service, ChromeOptions options, TimeSpan commandTimeout)
+   at OpenQA.Selenium.Chrome.ChromeDriver..ctor(ChromeOptions options)
+   at selenium_tests.SeleniumTest.Setup() in /home/l21/Documents/qa_automation/selenium_tests/SeleniumTest.cs:line 34
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+</pre></span><br></div>
+        </div>
+      </div></details><div>
+      <h2>Informational messages</h2><span>NUnit Adapter 4.5.0.0: Test execution started</span><br><span>Running all tests in /home/l21/Documents/qa_automation/selenium_tests/bin/Debug/net8.0/selenium_tests.dll</span><br><span>   NUnit3TestExecutor discovered 1 of 1 NUnit test cases using Current Discovery mode, Non-Explicit run</span><br><span>NUnit Adapter 4.5.0.0: Test execution complete</span><br></div>
+    <div>
+      <h2>Error and Warning messages</h2><span>Setup 
+
+</span><br></div>
+  </body>
+  <style>
+        body { font-family: Calibri, Verdana, Arial, sans-serif; background-color: White; color: Black; }
+        h2 {
+        margin-top: 15px;
+        margin-bottom:10px;
+        }
+        pre {
+        white-space: pre-wrap;
+        }
+        .summary {font-family:monospace;
+        display: -webkit-flex; /* Safari */
+        -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+        display: flex;
+        flex-wrap: wrap;
+        }
+        .row {
+        border: 2px solid #ffffff;
+        width:100%;
+        cursor:pointer;
+        background-color:#d7e9fa;
+        }
+        .list-row {
+        border: 2px solid #ffffff;
+        width:100%;
+        cursor:pointer;
+        background-color:#ffffff;
+        }
+        .inner-row{
+        border: 2px solid #ffffff;
+        padding-left:1%;
+        margin-left:1%;
+        background-color:#ffffff;
+        }
+        .block{
+        width : 150px;
+        }
+        .leaf-division{
+        border: 2px solid #ffffff;
+        background-color:#e6eff7;
+        }
+        .pass { color: #0c0; }
+        .fail { color: #c00; }
+        .error-message { color : brown; }
+        .error-stack-trace { color: brown; }
+        .duration {float:right;padding-right:1%;}
+        .total-tests { font-size : 30px}
+        .test-run-time { font-size : 30px}
+        .pass-percentage { font-size : 30px}
+        .error-info{
+        margin-left:16px;
+        }
+      </style>
+</html>

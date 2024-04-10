@@ -20,7 +20,7 @@ public class ContainerFunctions
    }
 
    public void selectApp(IWebDriver driver, string appname,string formname){
-      string app_xpath = $"//div[@ng-reflect-message='{appname}']";
+      string app_xpath = $"//div[text()='{appname}']";
       IWebElement app = driver.FindElement(By.XPath(app_xpath));
       app.Click();
 
@@ -30,7 +30,7 @@ public class ContainerFunctions
       form.Click();
       
       Thread.Sleep(TimeSpan.FromSeconds(10));
-      string form_xpath = $"//div[@ng-reflect-message='{formname}']/ancestor::fuse-card//img";
+      string form_xpath = $"//div[text()='{formname}']/ancestor::fuse-card//img";
       IWebElement form_select = driver.FindElement(By.XPath(form_xpath));
       form_select.Click();
       Thread.Sleep(TimeSpan.FromSeconds(5));
@@ -42,7 +42,7 @@ public class ContainerFunctions
    public void addText(IWebDriver driver, string text,string type)
    {
       
-      string textbox_xpath = $"//input[@ng-reflect-type='{type}']";
+      string textbox_xpath = $"//input[@type='{type}']";
       IWebElement textbox = driver.FindElement(By.XPath(textbox_xpath));
       textbox.SendKeys(text);
    }
@@ -191,5 +191,19 @@ public class ContainerFunctions
 
       IWebElement view_data = driver.FindElement(By.XPath(xpathReader.GetXPath("view_data")));
       view_data.Click();
+
+      select_form.Click();
+      Thread.Sleep(TimeSpan.FromSeconds(20));
+   }
+
+   public void exportData(IWebDriver driver)
+   {
+      IWebElement excel = driver.FindElement(By.XPath(xpathReader.GetXPath("excel")));
+      excel.Click();
+
+      Thread.Sleep(TimeSpan.FromSeconds(10));
+
+      IWebElement export = driver.FindElement(By.XPath(xpathReader.GetXPath("export")));
+      export.Click();
    }
 }   

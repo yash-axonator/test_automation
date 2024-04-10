@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xpaths>
-  <forms>//a[@ng-reflect-router-link="form"]</forms>
+  <forms>//span[text()=' Forms ']</forms>
 
   <textbox>//input[@ng-reflect-type="text"]</textbox>
 
   <choose_photo>//input[@id="Photo"]</choose_photo>
 
-  <toggle>//mat-slide-toggle[@ng-reflect-name="Toggle"]</toggle>
+  <toggle>//label[@class="mat-slide-toggle-label"]</toggle>
   <date_time>//*[@class="mat-datepicker-toggle-default-icon ng-star-inserted"]</date_time>
   <year>//*[@class="mat-calendar-arrow"]</year>
 
@@ -28,4 +28,6 @@
   <child_form_email>//input[@name="Email"]</child_form_email>
    <child_form_submit>//span[text()=' Submit ']</child_form_submit>
    <tap_here>//span[text()='Tap here']</tap_here>
+   <excel>//mat-icon[@svgicon="axo_export"]</excel>
+   <export>//button[text()='Export ']</export>
 </xpaths>

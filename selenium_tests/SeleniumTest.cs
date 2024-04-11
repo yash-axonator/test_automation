@@ -195,18 +195,18 @@ public class SeleniumTest
         // testLogger.GenerateHtmlReport("TestReport.html");    
         
 
-    try
-    {
-    testLogger.GenerateHtmlReport("./TestReport.html");
-    }
-    catch (UnauthorizedAccessException ex)
-    {
-    Console.WriteLine($"Error: Unauthorized access to the report file: {ex.Message}");
-    }
-    catch (IOException ex)
-    {
-    Console.WriteLine($"Error: IO exception occurred: {ex.Message}");
-    }   
+    // try
+    // {
+    // testLogger.GenerateHtmlReport("./TestReport.html");
+    // }
+    // catch (UnauthorizedAccessException ex)
+    // {
+    // Console.WriteLine($"Error: Unauthorized access to the report file: {ex.Message}");
+    // }
+    // catch (IOException ex)
+    // {
+    // Console.WriteLine($"Error: IO exception occurred: {ex.Message}");
+    // }   
         // driver.Quit();
     }
 

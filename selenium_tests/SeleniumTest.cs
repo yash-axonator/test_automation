@@ -197,7 +197,7 @@ public class SeleniumTest
 
     try
     {
-    testLogger.GenerateHtmlReport("TestReport.html");
+    testLogger.GenerateHtmlReport("./TestReport.html");
     }
     catch (UnauthorizedAccessException ex)
     {

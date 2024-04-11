@@ -330,8 +330,9 @@ public class SeleniumFunctions
   
 
    //ADD TEXTBOX 
-   public void addTextBox(IWebDriver driver, string text)
+   public void addTextBox(IWebDriver driver, string text, ref TestLogger testLogger)
    {
+    try{
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("textbox")));
       IWebElement target = driver.FindElement(By.XPath(xpathReader.GetXPath("drop_here_inserted")));
@@ -356,6 +357,13 @@ public class SeleniumFunctions
 
       // IWebElement add_text = driver.FindElement(By.XPath(xpathReader.GetXPath("set_text")));
       // add_text.SendKeys(text);
+       testLogger.Log("ADD TEXT BOX PASS",passed: true);
+    }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD TEXT BOX FAIL",passed:false);
+
+    }
       
 
 
@@ -381,8 +389,9 @@ public class SeleniumFunctions
         js.ExecuteScript(script, element);
     }
 
-   public void addTextBoxQA(IWebDriver driver, string text,string optionText,string unique_text)
+   public void addTextBoxQA(IWebDriver driver, string text,string optionText,string unique_text, ref TestLogger testLogger)
    {
+    try{
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("textbox")));
       HighlightElement(driver, source);
@@ -423,13 +432,21 @@ public class SeleniumFunctions
       set_unique_text.Click();
       set_unique_text.Clear();
       set_unique_text.SendKeys(unique_text);
+      testLogger.Log("ADD TEXT BOX PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD TEXT BOX FAIL",passed:false);
+
+    }
 
 
       
    }
 
-   public void addChoiceList(IWebDriver driver,string[] choice_items, string label)
+   public void addChoiceList(IWebDriver driver,string[] choice_items, string label, ref TestLogger testLogger)
    {
+    try{
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("choicelist")));
       HighlightElement(driver, source);
@@ -468,6 +485,13 @@ public class SeleniumFunctions
       // choice_list_label.Click();
       // choice_list_label.Clear();
       // choice_list_label.SendKeys(label);
+      testLogger.Log("ADD CHOICE LIST PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD CHOICE LIST FAIL",passed:false);
+
+    }
 
       
 
@@ -477,8 +501,9 @@ public class SeleniumFunctions
 
    }
 
-   public void addChoiceListQA(IWebDriver driver,string[] choice_items, string label)
+   public void addChoiceListQA(IWebDriver driver,string[] choice_items, string label, ref TestLogger testLogger)
    {
+    try{
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("choicelist")));
       HighlightElement(driver, source);
@@ -517,6 +542,13 @@ public class SeleniumFunctions
       choice_list_label.Click();
       choice_list_label.Clear();
       choice_list_label.SendKeys(label);
+      testLogger.Log("ADD CHOICE LIST PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD CHOICE LIST FAIL",passed:false);
+
+    }
 
       
 
@@ -526,8 +558,9 @@ public class SeleniumFunctions
 
    }
 
-   public void addChoiceListQA(IWebDriver driver,string label)
+   public void addChoiceListQA(IWebDriver driver,string label, ref TestLogger testLogger)
    {
+    try{
 
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("choicelist")));
@@ -563,14 +596,22 @@ public class SeleniumFunctions
        Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement reference_to_dropdown = driver.FindElement(By.XPath(xpathReader.GetXPath("reference_to_user")));
       reference_to_dropdown.Click();
+      testLogger.Log("ADD CHOICE LIST PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD CHOICE LIST FAIL",passed:false);
+
+    }
 
          
 
    
    }
 
-   public void addGroupHeader(IWebDriver driver,string title, int indent)
+   public void addGroupHeader(IWebDriver driver,string title, int indent, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
 
       Thread.Sleep(TimeSpan.FromSeconds(5));
@@ -610,13 +651,21 @@ public class SeleniumFunctions
    //  header_indent.SendKeys(indent.ToString());
 
    //  expand.Click();
+   testLogger.Log("ADD GROUP HEADER PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD GROUP HEADER FAIL",passed:false);
+
+    }
     
       
    }
 
 
-   public void addGroupHeaderQA(IWebDriver driver,string title, int indent)
+   public void addGroupHeaderQA(IWebDriver driver,string title, int indent,ref TestLogger testLogger)
    {
+    try{
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
 
@@ -669,12 +718,20 @@ public class SeleniumFunctions
     header_indent.SendKeys(indent.ToString());
 
     expand.Click();
+    testLogger.Log("ADD GROUP HEADER PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD GROUP HEADER FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addPhoto(IWebDriver driver,string title)
+   public void addPhoto(IWebDriver driver,string title, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
 
 
@@ -714,11 +771,19 @@ public class SeleniumFunctions
    //  photo_required.Click();
 
    //  expand.Click();
+   testLogger.Log("ADD PHOTO PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD PHOTO FAIL",passed:false);
+
+    }
       
    }
 
-   public void addPhotoQA(IWebDriver driver,string title)
+   public void addPhotoQA(IWebDriver driver,string title, ref TestLogger testLogger)
    {
+    try{
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
 
@@ -770,11 +835,19 @@ public class SeleniumFunctions
     photo_required.Click();
 
     expand.Click();
+    testLogger.Log("ADD PHOTO PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD PHOTO FAIL",passed:false);
+
+    }
       
    }
 
-   public void addToggleQA(IWebDriver driver, string label, string placeholder)
+   public void addToggleQA(IWebDriver driver, string label, string placeholder, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("toggle")));
       HighlightElement(driver,source);
@@ -808,13 +881,21 @@ public class SeleniumFunctions
     toggle_placeholder.Click();
     toggle_placeholder.Clear();
     toggle_placeholder.SendKeys(placeholder);
+    testLogger.Log("ADD TOGGLE PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD TOGGLE FAIL",passed:false);
+
+    }
 
 
       
    }
 
-   public void addDateTimeQA(IWebDriver driver, string picker)
+   public void addDateTimeQA(IWebDriver driver, string picker, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("date_time")));
       HighlightElement(driver,source);
@@ -847,6 +928,13 @@ public class SeleniumFunctions
 
       IWebElement dropdown = driver.FindElement(By.XPath(dropdown_value_xpath));
       dropdown.Click(); 
+      testLogger.Log("ADD DATE TIME PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD DATE TIME FAIL",passed:false);
+
+    }
     
 
 
@@ -855,8 +943,9 @@ public class SeleniumFunctions
 
 
    //ADD GPS
-   public void addGpsQA(IWebDriver driver, string capture_type)
+   public void addGpsQA(IWebDriver driver, string capture_type, ref TestLogger testLogger)
    {
+    try{
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
 
@@ -900,12 +989,20 @@ public class SeleniumFunctions
 
     Thread.Sleep(TimeSpan.FromSeconds(5));
     expand.Click();
+    testLogger.Log("ADD GPS PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD GPS FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addTimeStampQA(IWebDriver driver, string mode_value)
+   public void addTimeStampQA(IWebDriver driver, string mode_value, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(10));
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("timestamp")));
       HighlightElement(driver,source);
@@ -928,10 +1025,18 @@ public class SeleniumFunctions
      string mode_value_xpath = $"//span[text()='{mode_value}']";
      IWebElement select_mode_value = driver.FindElement(By.XPath(mode_value_xpath));
      select_mode_value.Click();
+     testLogger.Log("ADD TIMESTAMP PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD TIMESTAMP FAIL",passed:false);
+
+    }
    }
 
-   public void addChildRecordQA(IWebDriver driver)
+   public void addChildRecordQA(IWebDriver driver,ref TestLogger testLogger)
    {
+    try{
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
 
@@ -981,12 +1086,20 @@ public class SeleniumFunctions
 
     Thread.Sleep(TimeSpan.FromSeconds(5));
     expand.Click();
+    testLogger.Log("ADD CHILD RECORD PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD CHILD RECORD FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addStaticMediaQA(IWebDriver driver)
+   public void addStaticMediaQA(IWebDriver driver, ref TestLogger testLogger)
    {
+    try{
        Thread.Sleep(TimeSpan.FromSeconds(5));
 
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
@@ -1032,12 +1145,20 @@ public class SeleniumFunctions
     
 
     expand.Click();
+    testLogger.Log("ADD STATIC MEDIA PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD STATIC MEDIA FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addQrCodeQA(IWebDriver driver, string subtype)
+   public void addQrCodeQA(IWebDriver driver, string subtype,ref TestLogger testLogger)
    {
+    try{
        Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("qrcode")));
       HighlightElement(driver,source);
@@ -1061,12 +1182,20 @@ public class SeleniumFunctions
 
      IWebElement select_subtype = driver.FindElement(By.XPath(subtype_xpath));
      select_subtype.Click();
+     testLogger.Log("ADD QR CODE PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD QR CODE FAIL",passed:false);
+
+    }
 
 
    }
 
-   public void addStopWatchQA(IWebDriver driver,string indent)
+   public void addStopWatchQA(IWebDriver driver,string indent, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement source = driver.FindElement(By.XPath(xpathReader.GetXPath("stopwatch")));
       HighlightElement(driver,source);
@@ -1086,10 +1215,18 @@ public class SeleniumFunctions
      increase_indent.Click();
      increase_indent.Clear();
      increase_indent.SendKeys(indent);
+     testLogger.Log("ADD STOPWATCH PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD STOPWATCH FAIL",passed:false);
+
+    }
    }
 
-   public void addCounterQA(IWebDriver driver,string unit, string indent)
+   public void addCounterQA(IWebDriver driver,string unit, string indent,ref TestLogger testLogger)
    {
+    try{
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
 
@@ -1145,12 +1282,20 @@ public class SeleniumFunctions
     
     Thread.Sleep(TimeSpan.FromSeconds(5));
     expand.Click();
+    testLogger.Log("ADD COUNTER PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD COUNTER FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addGeoFenceQA(IWebDriver driver, string radius)
+   public void addGeoFenceQA(IWebDriver driver, string radius, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1213,12 +1358,19 @@ public class SeleniumFunctions
 
     Thread.Sleep(TimeSpan.FromSeconds(5));
     expand.Click();
-    
+    testLogger.Log("ADD GEOFENCE PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD GEOFENCE FAIL",passed:false);
+
+    }
       
    }
 
-   public void addApplyGeoFenceQA(IWebDriver driver)
+   public void addApplyGeoFenceQA(IWebDriver driver,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1271,12 +1423,19 @@ public class SeleniumFunctions
     select_object.Click();
     Thread.Sleep(TimeSpan.FromSeconds(5));
     expand.Click();
-    
+    testLogger.Log("APPLY GEOFENCE PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("APPLY GEOFENCE FAIL",passed:false);
+
+    }
       
    }
 
-   public void addBarcodeQA(IWebDriver driver)
+   public void addBarcodeQA(IWebDriver driver,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1321,12 +1480,19 @@ public class SeleniumFunctions
     
 
     expand.Click();
-    
+    testLogger.Log("ADD BARCODE PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD BARCODE FAIL",passed:false);
+
+    }
       
    }
 
-   public void addDocumentQA(IWebDriver driver,string type,string size)
+   public void addDocumentQA(IWebDriver driver,string type,string size,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1389,12 +1555,20 @@ public class SeleniumFunctions
     
     Thread.Sleep(TimeSpan.FromSeconds(5));
     expand.Click(); 
+    testLogger.Log("ADD DOCUMENT PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD DOCUMENT FAIL",passed:false);
+
+    }
 
     
       
    }
-   public void addAudioQA(IWebDriver driver)
+   public void addAudioQA(IWebDriver driver,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1439,12 +1613,20 @@ public class SeleniumFunctions
     
 
     expand.Click();
+    testLogger.Log("ADD AUDIO PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD AUDIO FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addVideoQA(IWebDriver driver)
+   public void addVideoQA(IWebDriver driver,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1489,12 +1671,20 @@ public class SeleniumFunctions
     
 
     expand.Click();
+    testLogger.Log("ADD VIDEO PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD VIDEO FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addFormulaQA(IWebDriver driver)
+   public void addFormulaQA(IWebDriver driver, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1539,12 +1729,20 @@ public class SeleniumFunctions
     
 
     expand.Click();
+    testLogger.Log("ADD FORMULA PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD FORMULA FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addWebLinkQA(IWebDriver driver,string url)
+   public void addWebLinkQA(IWebDriver driver,string url, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1594,12 +1792,20 @@ public class SeleniumFunctions
 
     Thread.Sleep(TimeSpan.FromSeconds(5));
     expand.Click();
+    testLogger.Log("ADD WEBLINK PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD WEBLINK FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addUniqueIdQA(IWebDriver driver)
+   public void addUniqueIdQA(IWebDriver driver,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1644,12 +1850,19 @@ public class SeleniumFunctions
     
 
     expand.Click();
-    
+    testLogger.Log("ADD UNIQUE ID PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD UNIQUE ID FAIL",passed:false);
+
+    }
       
    }
 
-   public void addAutoNumberQA(IWebDriver driver, string length)
+   public void addAutoNumberQA(IWebDriver driver, string length, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement expand =  driver.FindElement(By.XPath(xpathReader.GetXPath("expand_widget")));
       expand.Click();
@@ -1697,12 +1910,20 @@ public class SeleniumFunctions
     Thread.Sleep(TimeSpan.FromSeconds(5));
     
     expand.Click();
+    testLogger.Log("ADD AUTONUMBER PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD AUTONUMBER FAIL",passed:false);
+
+    }
     
       
    }
 
-   public void addLanguageQA(IWebDriver driver)
+   public void addLanguageQA(IWebDriver driver, ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       // Actions actions1 = new Actions(driver);
       // actions1.SendKeys(Keys.PageDown).Perform();
@@ -1731,6 +1952,13 @@ public class SeleniumFunctions
       // header_title.Clear();
       // header_title.SendKeys(title);
     Thread.Sleep(TimeSpan.FromSeconds(5));
+    testLogger.Log("ADD LANGUAGE PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("ADD LANGUAGE FAIL",passed:false);
+
+    }
     
 
     
@@ -1765,14 +1993,21 @@ public class SeleniumFunctions
 
    
 
-    public void saveFormQA(IWebDriver driver)
+    public void saveFormQA(IWebDriver driver, ref TestLogger testLogger)
    {
+    try{
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
       IWebElement save_form = driver.FindElement(By.XPath(xpathReader.GetXPath("save_form")));
       save_form.Click();
       Console.WriteLine("form saved");
       driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+      testLogger.Log("SAVE FORM PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("SAVE FORM FAIL",passed:false);
 
+    }
 
       // IAlert alert = driver.SwitchTo().Alert();
       // //handle alert
@@ -1782,7 +2017,7 @@ public class SeleniumFunctions
 
    }
 
-   public void release_app(IWebDriver driver)
+   public void release_app(IWebDriver driver,ref TestLogger testLogger)
    {
       //  try{
       //       //alert
@@ -1818,8 +2053,9 @@ public class SeleniumFunctions
       release_version.Click();
    }
 
-   public void release_app_QA(IWebDriver driver)
+   public void release_app_QA(IWebDriver driver,ref TestLogger testLogger)
    {
+    try{
       Thread.Sleep(TimeSpan.FromSeconds(5));
       IWebElement release = driver.FindElement(By.XPath(xpathReader.GetXPath("release_app")));
       release.Click();
@@ -1831,6 +2067,13 @@ public class SeleniumFunctions
        Thread.Sleep(TimeSpan.FromSeconds(60));
        IWebElement container = driver.FindElement(By.XPath(xpathReader.GetXPath("container")));
        container.Click();
+       testLogger.Log("APP RELEASE PASS",passed:false);
+      }
+    catch(Exception e)
+    {
+       testLogger.Log("APP RELEASE FAIL",passed:false);
+
+    }
 
    }
 
@@ -1883,6 +2126,7 @@ public class SeleniumFunctions
             // Console.WriteLine("Element not found.");
         }
    }
+}   
 
 
-}
+

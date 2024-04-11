@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
@@ -28,7 +28,7 @@ public class SeleniumTest
         // driver = new ChromeDriver();  //chrome driver initialization
 
         options = new ChromeOptions();
-        options.AddArgument("--headless"); // Run in headless mode without opening a browser window
+        // options.AddArgument("--headless"); // Run in headless mode without opening a browser window
         options.AddArgument("--window-size=1366,768");
         // // // Initialize ChromeDriver with headless options
         driver = new ChromeDriver(options);
@@ -67,46 +67,46 @@ public class SeleniumTest
         Thread.Sleep(TimeSpan.FromSeconds(10));
         seleniumFunctions.createFormQA(driver,"safety",ref testLogger);
         Thread.Sleep(TimeSpan.FromSeconds(10));
-        seleniumFunctions.addTextBoxQA(driver,"sample_text","Email","textbox_unique");
+        seleniumFunctions.addTextBoxQA(driver,"sample_text","Email","textbox_unique",ref testLogger);
         string[] choice_items = new string[] { "To Do", "In Progress", "Completed" };
-        seleniumFunctions.addChoiceListQA(driver,choice_items,"Choice List");
+        seleniumFunctions.addChoiceListQA(driver,choice_items,"Choice List",ref testLogger);
           
         Thread.Sleep(TimeSpan.FromSeconds(2));
         
-        seleniumFunctions.addChoiceListQA(driver,"choice_label1");
+        seleniumFunctions.addChoiceListQA(driver,"choice_label1",ref testLogger);
         seleniumFunctions.scrollDown(driver);
-        seleniumFunctions.addGroupHeaderQA(driver,"group header title",5);
+        seleniumFunctions.addGroupHeaderQA(driver,"group header title",5,ref testLogger);
         Thread.Sleep(TimeSpan.FromSeconds(5));
         seleniumFunctions.scrollDown(driver);
-        seleniumFunctions.addPhotoQA(driver,"photo_label");
+        seleniumFunctions.addPhotoQA(driver,"photo_label",ref testLogger);
         Thread.Sleep(TimeSpan.FromSeconds(5));
         seleniumFunctions.scrollDown(driver);
-        seleniumFunctions.addToggleQA(driver,"toggle_label","toggle_placeholder");
-        seleniumFunctions.addDateTimeQA(driver," Date");
-        seleniumFunctions.addGpsQA(driver," On Tap");
-        seleniumFunctions.addTimeStampQA(driver," On Open");
-        seleniumFunctions.addChildRecordQA(driver);
-        seleniumFunctions.addStaticMediaQA(driver);  
-        seleniumFunctions.addQrCodeQA(driver," Default");
-        seleniumFunctions.addStopWatchQA(driver,"5");
-        seleniumFunctions.addCounterQA(driver,"number","5");
-        seleniumFunctions.addGeoFenceQA(driver,"5");
+        seleniumFunctions.addToggleQA(driver,"toggle_label","toggle_placeholder",ref testLogger);
+        seleniumFunctions.addDateTimeQA(driver," Date",ref testLogger);
+        seleniumFunctions.addGpsQA(driver," On Tap",ref testLogger);
+        seleniumFunctions.addTimeStampQA(driver," On Open",ref testLogger);
+        seleniumFunctions.addChildRecordQA(driver,ref testLogger);
+        seleniumFunctions.addStaticMediaQA(driver,ref testLogger);  
+        seleniumFunctions.addQrCodeQA(driver," Default",ref testLogger);
+        seleniumFunctions.addStopWatchQA(driver,"5",ref testLogger);
+        seleniumFunctions.addCounterQA(driver,"number","5",ref testLogger);
+        seleniumFunctions.addGeoFenceQA(driver,"5",ref testLogger);
         // seleniumFunctions.addApplyGeoFenceQA(driver);
-        seleniumFunctions.addBarcodeQA(driver);
-        seleniumFunctions.addDocumentQA(driver," doc","5");
-        seleniumFunctions.addAudioQA(driver);
-        seleniumFunctions.addVideoQA(driver);
-        seleniumFunctions.addFormulaQA(driver);
-        seleniumFunctions.addLanguageQA(driver);
-        seleniumFunctions.addWebLinkQA(driver,"https://andromeda-builder-qa.axonator.com/");
-        seleniumFunctions.addUniqueIdQA(driver);
-        seleniumFunctions.addAutoNumberQA(driver,"5");
+        seleniumFunctions.addBarcodeQA(driver,ref testLogger);
+        seleniumFunctions.addDocumentQA(driver," doc","5",ref testLogger);
+        seleniumFunctions.addAudioQA(driver,ref testLogger);
+        seleniumFunctions.addVideoQA(driver,ref testLogger);
+        seleniumFunctions.addFormulaQA(driver,ref testLogger);
+        seleniumFunctions.addLanguageQA(driver,ref testLogger);
+        seleniumFunctions.addWebLinkQA(driver,"https://andromeda-builder-qa.axonator.com/",ref testLogger);
+        seleniumFunctions.addUniqueIdQA(driver,ref testLogger);
+        seleniumFunctions.addAutoNumberQA(driver,"5",ref testLogger);
 
         Thread.Sleep(TimeSpan.FromSeconds(5));
-        seleniumFunctions.saveFormQA(driver);
+        seleniumFunctions.saveFormQA(driver,ref testLogger);
 
         Thread.Sleep(TimeSpan.FromSeconds(20));
-        seleniumFunctions.release_app_QA(driver);
+        seleniumFunctions.release_app_QA(driver,ref testLogger);
 
         
         //  var tabs = driver.WindowHandles;

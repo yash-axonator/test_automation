@@ -9,7 +9,7 @@ namespace selenium_tests;
 
 public class SeleniumTest
 {
-    public ChromeOptions options;
+    public FirefoxOptions options;
     public IWebDriver driver;
 
     //created a class SeleniumFuctions to include functions used in tests
@@ -27,11 +27,11 @@ public class SeleniumTest
         Console.WriteLine("Setup \n");
         // driver = new ChromeDriver();  //chrome driver initialization
 
-        options = new ChromeOptions();
+        options = new FirefoxOptions();
         options.AddArgument("--headless"); // Run in headless mode without opening a browser window
         options.AddArgument("--window-size=1366,768");
         // // // Initialize ChromeDriver with headless options
-        driver = new ChromeDriver(options);
+        driver = new FirefoxDriver(firefoxOptions);
         seleniumFunctions = new SeleniumFunctions(); //creating object of class containing fucntion
         containerFunctions = new ContainerFunctions(); //container page fucntions
         // driver.Navigate().GoToUrl("https://andromeda-identity-qa.axonator.com/"); https://app.axonator.com/

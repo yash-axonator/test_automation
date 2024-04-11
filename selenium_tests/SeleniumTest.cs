@@ -28,7 +28,7 @@ public class SeleniumTest
         // driver = new ChromeDriver();  //chrome driver initialization
 
         options = new ChromeOptions();
-        // options.AddArgument("--headless"); // Run in headless mode without opening a browser window
+        options.AddArgument("--headless"); // Run in headless mode without opening a browser window
         options.AddArgument("--window-size=1366,768");
         // // // Initialize ChromeDriver with headless options
         driver = new ChromeDriver(options);

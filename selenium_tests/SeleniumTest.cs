@@ -9,7 +9,7 @@ namespace selenium_tests;
 
 public class SeleniumTest
 {
-    public FirefoxOptions options;
+    public ChromeOptions options;
     public IWebDriver driver;
 
     //created a class SeleniumFuctions to include functions used in tests
@@ -27,11 +27,11 @@ public class SeleniumTest
         Console.WriteLine("Setup \n");
         // driver = new ChromeDriver();  //chrome driver initialization
 
-        options = new FirefoxOptions();
+        options = new ChromeOptions();
         options.AddArgument("--headless"); // Run in headless mode without opening a browser window
         options.AddArgument("--window-size=1366,768");
         // // // Initialize ChromeDriver with headless options
-        driver = new FirefoxDriver(firefoxOptions);
+        driver = new ChromeDriver(options);
         seleniumFunctions = new SeleniumFunctions(); //creating object of class containing fucntion
         containerFunctions = new ContainerFunctions(); //container page fucntions
         // driver.Navigate().GoToUrl("https://andromeda-identity-qa.axonator.com/"); https://app.axonator.com/
@@ -195,18 +195,18 @@ public class SeleniumTest
         // testLogger.GenerateHtmlReport("TestReport.html");    
         
 
-    // try
-    // {
-    // testLogger.GenerateHtmlReport("./TestReport.html");
-    // }
-    // catch (UnauthorizedAccessException ex)
-    // {
-    // Console.WriteLine($"Error: Unauthorized access to the report file: {ex.Message}");
-    // }
-    // catch (IOException ex)
-    // {
-    // Console.WriteLine($"Error: IO exception occurred: {ex.Message}");
-    // }   
+    try
+    {
+    testLogger.GenerateHtmlReport("ssTestReport.html");
+    }
+    catch (UnauthorizedAccessException ex)
+    {
+    Console.WriteLine($"Error: Unauthorized access to the report file: {ex.Message}");
+    }
+    catch (IOException ex)
+    {
+    Console.WriteLine($"Error: IO exception occurred: {ex.Message}");
+    }   
         // driver.Quit();
     }
 

@@ -17,7 +17,7 @@ public class SeleniumTest
     public ContainerFunctions containerFunctions;
     public static TestLogger testLogger = new TestLogger();
 
-    public string reportPath = "./TestReport.html";
+    public string reportPath = "TestReport.html";
 
     
 
@@ -197,7 +197,7 @@ public class SeleniumTest
 
     try
     {
-    testLogger.GenerateHtmlReport("ssTestReport.html");
+    testLogger.GenerateHtmlReport("TestReport.html");
     }
     catch (UnauthorizedAccessException ex)
     {
